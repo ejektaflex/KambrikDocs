@@ -6,14 +6,14 @@
 
 	--c-border: #F9CBBE;
 
-	--c-bg: #FDF0ED;
+	--c-bg: #fce9e4;
 
 	--c-text: #1A1C23;
 
-	--code-bg-lighter: #FADAD1;
-
+	--code-bg-color: #FDF0ED;
 
 	--c-tip: #1EB980;
+
 	--c-tip-bg: #FADAD1;
 }
 
@@ -31,5 +31,9 @@ html.dark {
 
 	--c-tip: #27D796;
 	--c-tip-bg: var(--c-bg-light);
+}
+
+button.code-group__nav-tab {
+	color: var(--c-text);
 }
 

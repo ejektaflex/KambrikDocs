@@ -1,36 +1,65 @@
 
 $codeLang: 'kt' 'md' !default;
 
+
+
+.line-number {
+    color: var(--c-text);
+}
+
+.token.punctuation {
+    color: var(--c-text);
+}
+
+
+
 .theme-default-content pre code {
-    color: #F09383 !important;
+    color: #F77D26 !important;
 }
 
 .token.string {
-    color: #FAB795;
+    color: #F6661E;
 }
 
 .token.number {
-    color: #FAC29A;
+    color: #F77D26;
 }
 
 .token.function {
-    color: #25B2BC;
+    color: #1D8991;
 }
 
 .token.keyword {
+    color: #DA103F;
+}
+
+
+
+
+html.dark .theme-default-content pre code {
+    color: #F09383 !important;
+}
+
+html.dark .token.string {
+    color: #FAB795;
+}
+
+html.dark .token.number {
+    color: #FAC29A;
+}
+
+html.dark .token.function {
+    color: #25B2BC;
+}
+
+html.dark .token.keyword {
     color: #E95678;
 }
 
-.token.interpolation.variable {
+html.dark .token.interpolation.variable {
     color: #E95678;
 }
 
-.token.annotation.builtin {
+html.dark .token.annotation.builtin {
     color: #B877DB;
 }
-
-// .token.punctuation {
-//     color: #E95678;
-// }
-
-
