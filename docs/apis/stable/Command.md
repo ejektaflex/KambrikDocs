@@ -34,8 +34,9 @@ This creates a simple command: `/test`. It does not do anything yet, but it will
 
 In order to get this command to run some code, we can add `runs`.
 
-<CodeGroup>
-	<CodeGroupItem title="Kambrik">
+:::: code-group
+
+::: code-group-item Kambrik
 
 ```kt
 dispatcher.addCommand("test") {
@@ -57,9 +58,10 @@ dispatcher.addCommand("test") {
 	}
 }
 ```
-</CodeGroupItem>
 
-<CodeGroupItem title="Vanilla">
+:::
+
+::: code-group-item Vanilla
 
 ```kt
 dispatcher.register(
@@ -85,9 +87,9 @@ dispatcher.register(
 	)
 ```
 
-</CodeGroupItem>
+:::
 
-</CodeGroup>
+::::
 
 This will have created a new command, `/test [apple/pear]` !
 
@@ -145,9 +147,9 @@ fun doBar() = Command<ServerCommandSource> { ctx ->
 
 We can add literals to commands in several different ways, as shown below:
 
-<CodeGroup>
+:::: code-group
 
-<CodeGroupItem title="Kambrik">
+::: code-group-item Kambrik
 
 ```kt
 dispatcher.addCommand("test") {
@@ -162,9 +164,9 @@ dispatcher.addCommand("test") {
 }
 ```
 
-</CodeGroupItem>
+:::
 
-<CodeGroupItem title="Vanilla">
+::: code-group-item Vanilla
 
 ```kt
 dispatcher.register(
@@ -178,9 +180,9 @@ dispatcher.register(
 )
 ```
 
-</CodeGroupItem>
+:::
 
-</CodeGroup>
+::::
 
 The shorthand version is usually preferred.
 
@@ -189,9 +191,9 @@ The shorthand version is usually preferred.
 
 We can create arguments for commands rather easily as well:
 
-<CodeGroup>
+:::: code-group
 
-<CodeGroupItem title="Kambrik">
+::: code-group-item Kambrik
 
 ```kt
 dispatcher.addCommand("test") {
@@ -209,9 +211,9 @@ dispatcher.addCommand("test") {
 }
 ```
 
-</CodeGroupItem>
+:::
 
-<CodeGroupItem title="Vanilla">
+::: code-group-item Vanilla
 
 ```kt
 dispatcher.register(
@@ -234,9 +236,9 @@ dispatcher.register(
 )
 ```
 
-</CodeGroupItem>
+:::
 
-</CodeGroup>
+::::
 
 This creates a new command, `/test count (amt)`. It will print to the output `amt` number of times.
 
@@ -251,9 +253,9 @@ We can also provide suggestions for different arguments!
 
 To do this, we can use `suggestionsList` to build a suggestions list.
 
-<CodeGroup>
+:::: code-group
 
-<CodeGroupItem title="Kambrik">
+::: code-group-item Kambrik
 
 ```kt
 dispatcher.addCommand("fruit") {
@@ -267,9 +269,9 @@ dispatcher.addCommand("fruit") {
 }
 ```
 
-</CodeGroupItem>
+::: 
 
-<CodeGroupItem title="Vanilla">
+::: code-group-item Vanilla
 
 ```kt
 dispatcher.register(
@@ -289,9 +291,9 @@ dispatcher.register(
 )
 ```
 
-</CodeGroupItem>
+:::
 
-</CodeGroup>
+::::
 
 If you want to provide tooltips, you can instead use `suggestionListTooltipped {}`.
 
@@ -331,9 +333,9 @@ dispatcher.addCommand("test") {
 
 Fabric allows us to also specify client commands. We don't register these in a serverside callback, but instead inside of the mod initializer:
 
-<CodeGroup>
+:::: code-group
 
-<CodeGroupItem title="Kambrik">
+::: code-group-item Kambrik
 
 ```kt
 override fun onInitialize() {
@@ -347,9 +349,9 @@ override fun onInitialize() {
 }
 ```
 
-</CodeGroupItem>
+:::
 
-<CodeGroupItem title="Vanilla">
+::: code-group-item Vanilla
 
 ```kt
 override fun onInitialize() {
@@ -365,9 +367,9 @@ override fun onInitialize() {
 }
 ```
 
-</CodeGroupItem>
+:::
 
-</CodeGroup>
+::::
 
 
 ## Command Examples
@@ -411,4 +413,3 @@ private fun dump() = Command<ServerCommandSource> {
 }
 ```
 
-:::
