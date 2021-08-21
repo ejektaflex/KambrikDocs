@@ -32,7 +32,8 @@ module.exports = {
 	title: "Kambrik",
 	themeConfig: {
 		logo: '/images/android-chrome-192x192.png',
-		repo: 'https://github.com/ejektaflex/KambrikDocs',
+		repo: 'https://github.com/ejektaflex/KambrikDocs/',
+		docsDir: '/docs/',
 		navbar: [
 			{
 				text: "Getting Started",

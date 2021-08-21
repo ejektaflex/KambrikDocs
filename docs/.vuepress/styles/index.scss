@@ -37,3 +37,10 @@ button.code-group__nav-tab {
 	color: var(--c-text);
 }
 
+html.dark button.code-group__nav-tab {
+	color: var(--c-brand);
+}
+
+code {
+	color: var(--c-brand);
+}
