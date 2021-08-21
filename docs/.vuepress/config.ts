@@ -31,7 +31,6 @@ const sidebar: SidebarConfig = {
 module.exports = {
 	title: "Kambrik",
 	base: "/KambrikDocs/",
-	head: [['link', { rel: 'icon', href: 'images/favicon-32x32.png' }]],
 	themeConfig: {
 		navbar: [
 			{
