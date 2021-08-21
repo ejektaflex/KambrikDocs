@@ -1,0 +1,35 @@
+
+:root {
+	--c-brand: #F43E5C;
+	--c-brand-light: #E84A72;
+
+
+	--c-border: #F9CBBE;
+
+	--c-bg: #FDF0ED;
+
+	--c-text: #1A1C23;
+
+	--code-bg-lighter: #FADAD1;
+
+
+	--c-tip: #1EB980;
+	--c-tip-bg: #FADAD1;
+}
+
+html.dark {
+	--c-brand: #F43E5C;
+	--c-brand-light: #E95379;
+
+	--c-bg: #1C1E26;
+	--c-bg-light: #232530;
+	--c-bg-lighter: #2E303E;
+
+	// --c-text: #d8cac7;
+
+	--code-bg-color: #232530;
+
+	--c-tip: #27D796;
+	--c-tip-bg: var(--c-bg-light);
+}
+

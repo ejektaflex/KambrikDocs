@@ -1,0 +1,36 @@
+
+$codeLang: 'kt' 'md' !default;
+
+.theme-default-content pre code {
+    color: #F09383 !important;
+}
+
+.token.string {
+    color: #FAB795;
+}
+
+.token.number {
+    color: #FAC29A;
+}
+
+.token.function {
+    color: #25B2BC;
+}
+
+.token.keyword {
+    color: #E95678;
+}
+
+.token.interpolation.variable {
+    color: #E95678;
+}
+
+.token.annotation.builtin {
+    color: #B877DB;
+}
+
+// .token.punctuation {
+//     color: #E95678;
+// }
+
+
