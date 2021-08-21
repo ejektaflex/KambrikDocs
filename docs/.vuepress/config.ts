@@ -30,7 +30,6 @@ const sidebar: SidebarConfig = {
 
 module.exports = {
 	title: "Kambrik",
-	base: "/KambrikDocs/",
 	themeConfig: {
 		navbar: [
 			{
