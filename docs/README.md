@@ -28,34 +28,4 @@ Yes, this mod is for Fabric & Fabric API, and written in Kotlin.
 
 
 
-### Testing For Styles :D!
-
-```kt
-"count" {
-	intArt("amt") runs {
-		val amt = getInteger(it, "amt")
-
-		for (i in 0 until amt) {
-			println("Counting: $i")
-		}
-	}
-}
-
-class Hello : MyFriend
-
-data class HiThere
-
-@Serializable
-data class SupDude
-
-```
-
-Hey there matey!
-
-
-::: tip Sup
-This matters a lot!
-:::
-
-
 
