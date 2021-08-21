@@ -25,7 +25,7 @@ const commonSidebar = [
 
 const sidebar: SidebarConfig = {
 	'/apis/': commonSidebar,
-	'/main': commonSidebar
+	'/main/': commonSidebar
 }
 
 module.exports = {
