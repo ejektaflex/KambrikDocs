@@ -4,7 +4,8 @@
 To add Kambrik to your project, add this to your Gradle build script:
 
 <CodeGroup>
-	<CodeGroupItem title="Kotlin Gradle">
+
+<CodeGroupItem title="Kotlin Gradle">
 
 ```kt
 repositories {

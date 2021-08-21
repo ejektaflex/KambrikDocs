@@ -1,29 +1,60 @@
-# Kambrik
+---
+home: true
+title: Home
+heroImage: /images/android-chrome-512x512.png
+actions:
+  - text: Get Started
+    link: /main/Getting-Started.md
+    type: primary
+  - text: Features
+    link: /apis/stable/Command.md
+    type: secondary
+features:
+  - title: Kotlin-Based
+    details: Kambrik uses Kotlin 1.5.31 under the hood, along with KotlinX Serialization for data serialization.
+  - title: Fabric Integration
+    details: We use existing Fabric APIs when possible to avoid reinventing the wheel.
+  - title: Plug-And-Play
+    details: Easy to add to a new project, and all API features are separate. Just use the ones you want.
+  - title: Automatic Registration
+    details: Item/Block/Potion/Etc registration is simplified, removing some of the verbosity.
+  - title: Command DSL
+    details: A Kotlin-esque Command DSL works on top of Brigadier to make command creation more simple.
+  - title: Message API
+    details: Messages can be sent between the client and server without ever writing to a packet.
+footer: MIT Licensed with ♡
+---
 
-A lightweight Kotlin library mod for [Fabric.](https://fabricmc.net/) 
-Meant to simplify development through various means.
+### Setup is as simple as two new lines of code.
 
-Kambrik Currently Offers: 
-* Simplified Registration of Items, Blocks, Enchantments, etc.
-* Command DSL for simple command creation
-* A Message API for sending data over the network and back
-* Extension methods for common, reusable functionality
+<CodeGroup>
 
+<CodeGroupItem title="Kotlin Gradle">
 
-Experimental Features:
-* Simple Object <=> NBT conversion with Kotlinx Serialization
+```kt
+repositories {
+    mavenCentral()
+}
 
+dependencies {
+    modImplementation("io.ejekta:kambrik:1.0.0")
+}
+```
 
-Upcoming Features:
-* A Text builder DSL
-* A GUI drawing DSL/API
+</CodeGroupItem>
 
+<CodeGroupItem title="Gradle">
 
-Experimental library features will be put into `kambrikx` until they mature.
+```groovy
+repositories {
+    mavenCentral()
+}
 
+dependencies {
+    modImplementation 'io.ejekta:kambrik:VERSION'
+}
+```
 
-### Fabric?
+</CodeGroupItem>
 
-Yes, this mod is for Fabric & Fabric API, and written in Kotlin.
-
-
+</CodeGroup>

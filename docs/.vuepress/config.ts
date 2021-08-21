@@ -30,6 +30,7 @@ const sidebar: SidebarConfig = {
 
 module.exports = {
 	title: "Kambrik",
+	description: "A Kotlin-Fabric Library Mod",
 	themeConfig: {
 		logo: '/images/android-chrome-192x192.png',
 		repo: 'https://github.com/ejektaflex/KambrikDocs/',
