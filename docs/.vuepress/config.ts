@@ -79,11 +79,7 @@ module.exports = {
 			{
 				text: "Changelog",
 				link: "https://github.com/ejektaflex/Kambrik/blob/master/CHANGELOG.md"
-			},
-			{
-				text: "GitHub",
-				link: "https://github.com/ejektaflex/Kambrik"
-			},
+			}
 		],
 		sidebar: sidebar
 	}
