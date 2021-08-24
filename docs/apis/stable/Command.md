@@ -319,7 +319,7 @@ or have permission level 2. As such, you can use this handy shortcut:
 
 ```kt
 dispatcher.addCommand("test") {
-	requires(Kambrik.Command::hasBasicCreativePermission)
+	requires(::hasBasicCreativePermission)
 	// ...
 }
 ```

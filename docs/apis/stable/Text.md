@@ -53,10 +53,10 @@ We can use the `+` shorthand here, too.
 // except for the player's name, which is Aqua colored.
 val text = textLiteral("Hello ") {
     format(Formatting.GOLD, Formatting.ITALIC)
-    +textLiteral(player.displayName) {
+    +player.displayName {
         format(Formatting.AQUA)
     }
-    +textLiteral(", how are you?")
+    +", how are you?"
 }
 ```
 
@@ -69,7 +69,7 @@ val text = textLiteral("Hello ") {
 // except for the player's name, which is Aqua colored.
 val text = textLiteral("Hello ") {
     +Formatting.GOLD; +Formatting.ITALIC
-    +textLiteral(player.displayName) {
+    +player.displayName {
         +Formatting.AQUA
     }
     +", how are you?"
@@ -97,9 +97,26 @@ val text = LiteralText("Hello ")
 ::::
 
 
+We can also change some simple style properties without much effort:
+
+```kt
+val test = textLiteral("Hello ") {
+    +Formatting.GOLD
+    +"Joe" {
+        color = 0x55ff33
+        bold = true
+        italics = true
+        strikeThrough = false
+        obfuscated = false
+    }
+    +", how are you?"
+}
+```
+
+
 ## Hover Events
 
-We can add hover events with `onHover(event)`.
+We can add hover events by setting the `hoverEvent` property.
 
 Unary plus `+` syntax applies here as well.
 
@@ -110,20 +127,7 @@ Unary plus `+` syntax applies here as well.
 ```kt
 val test = textLiteral("Look at this bucket!") {
     +Formatting.AQUA
-    onHover(HoverEvent(HoverEvent.Action.SHOW_ITEM, HoverEvent.ItemStackContent(
-        ItemStack(Items.BUCKET)
-    )))
-}
-```
-
-:::
-
-::: code-group-item Shorthand
-
-```kt
-val test = textLiteral("Look at this bucket!") {
-    +Formatting.AQUA
-    +HoverEvent(HoverEvent.Action.SHOW_ITEM, HoverEvent.ItemStackContent(
+    hoverEvent = HoverEvent(HoverEvent.Action.SHOW_ITEM, HoverEvent.ItemStackContent(
         ItemStack(Items.BUCKET)
     ))
 }
@@ -198,8 +202,8 @@ Similarly, we can show Text when hovering over Text as well.
 ```kt
 val test = textLiteral("Hello World!") {
     onHoverShowText {
-        +Formatting.ITALIC
-        +textLiteral("How are you?")
+        format(Formatting.ITALIC)
+        +"How are you?"
     }
 }
 ```
