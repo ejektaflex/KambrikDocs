@@ -46,10 +46,6 @@ dependencies {
 <CodeGroupItem title="Gradle">
 
 ```groovy
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     modImplementation 'io.ejekta:kambrik:VERSION'
 }

@@ -8,10 +8,6 @@ To add Kambrik to your project, add this to your Gradle build script:
 <CodeGroupItem title="Kotlin Gradle">
 
 ```kt
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     modImplementation("io.ejekta:kambrik:VERSION")
 }
