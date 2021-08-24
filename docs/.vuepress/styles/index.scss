@@ -35,6 +35,8 @@ html.dark {
 	--c-tip-bg: var(--c-bg-light);
 }
 
+/* Code group switcher text color */
+
 button.code-group__nav-tab {
 	color: var(--c-text);
 }
@@ -43,6 +45,19 @@ html.dark button.code-group__nav-tab {
 	color: var(--c-brand);
 }
 
+/* line next to line numbers */
+
+div[class*="language-"].line-numbers-mode::after {
+	border-right: 1px solid var(--c-tip-bg);
+}
+
+html.dark div[class*="language-"].line-numbers-mode::after {
+	border-right: 1px solid var(--c-bg-lighter);
+}
+
+
+/* Single backtick inline code */
 code {
 	color: var(--c-brand);
+	background-color: var(--code-bg-color);
 }

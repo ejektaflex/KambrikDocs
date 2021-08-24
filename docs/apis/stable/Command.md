@@ -1,5 +1,5 @@
 
-# Commands
+# Command DSL
 
 Kambrik offers an alternative command DSL that exists on top of the existing command 
 framework, [Brigadier](https://github.com/Mojang/brigadier). This DSL allows us to more
@@ -153,14 +153,10 @@ We can add literals to commands in several different ways, as shown below:
 
 ```kt
 dispatcher.addCommand("test") {
-	literal("test") {
-		// ...
-	}
+	literal("test") { /* ... */ }
 
 	// shorthand
-	"another_test" {
-		// ...
-	}
+	"another_test" { /* ... */ }
 }
 ```
 
@@ -184,7 +180,7 @@ dispatcher.register(
 
 ::::
 
-The shorthand version is usually preferred.
+The shorthand version is usually preferred, and will be used throughout the remaining examples.
 
 
 ### Arguments

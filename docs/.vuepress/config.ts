@@ -13,6 +13,7 @@ const commonSidebar = [
 			'/apis/stable/Command.md',
 			'/apis/stable/Message.md',
 			'/apis/stable/Registration.md',
+			'/apis/stable/Text.md'
 		]
 	},
 	{
@@ -23,14 +24,16 @@ const commonSidebar = [
 	}
 ]
 
+
 const sidebar: SidebarConfig = {
 	'/apis/': commonSidebar,
-	'/main/': commonSidebar
+	'/main/': commonSidebar//,
+	//'/dokka/': dokkaSidebar
 }
 
 module.exports = {
 	title: "Kambrik",
-	description: "A Kotlin-Fabric Library Mod",
+	description: "A Kotlin Library Mod for Fabric",
 	themeConfig: {
 		logo: '/images/android-chrome-192x192.png',
 		repo: 'https://github.com/ejektaflex/KambrikDocs/',
@@ -59,6 +62,10 @@ module.exports = {
 								text: "Registration API",
 								link: "/apis/stable/Registration"
 							},
+							{
+								text: "Text API",
+								link: "/apis/stable/Text"
+							}
 						]
 					},
 					{
