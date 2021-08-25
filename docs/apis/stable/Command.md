@@ -314,13 +314,15 @@ dispatcher.addCommand("greet") {
 }
 ```
 
-The most common requirement for running a command is for the player to be in creative mode, 
-or have permission level 2. As such, you can use this handy shortcut:
+There are also shortcut functions for common requirements here:
 
 ```kt
 dispatcher.addCommand("test") {
-	requires(::hasBasicCreativePermission)
-	// ...
+	requiresCreative()
+	// OR
+	requiresOp(opLevel)
+	// OR
+	requiresCreativeOrOp(opLevel)
 }
 ```
 

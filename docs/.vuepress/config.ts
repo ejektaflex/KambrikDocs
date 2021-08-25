@@ -4,7 +4,9 @@ const commonSidebar = [
 	{
 		text: "Getting Started",
 		children: [
-			'/main/Getting-Started.md'
+			'/main/Getting-Started.md',
+			'/main/Philosophy.md',
+			'/main/Builtin-Commands.md'
 		]
 	},
 	{
