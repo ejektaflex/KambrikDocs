@@ -33,3 +33,4 @@ dependencies {
 
 Where `VERSION` is the version of Kambrik that you want to use. You can find the latest version [here.](https://github.com/ejektaflex/Kambrik/packages/666830)
 
+Alternatively, new projects can [use our GitHub template.](https://github.com/ejektaflex/KambrikExampleMod/)

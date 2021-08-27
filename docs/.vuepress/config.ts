@@ -10,16 +10,28 @@ const commonSidebar = [
 		]
 	},
 	{
-		text: "APIs - Stable",
+		text: "DSLs",
 		children: [
-			'/apis/stable/Command.md',
-			'/apis/stable/Message.md',
-			'/apis/stable/Registration.md',
-			'/apis/stable/Text.md'
+			'/apis/dsl/Command.md',
+			'/apis/dsl/Text.md'
 		]
 	},
 	{
-		text: "APIs - Experimental",
+		text: "Features",
+		children: [
+			'/apis/feature/Registration.md',
+		]
+	},
+	{
+		text: "Serialization",
+		children: [
+			'/apis/serial/Serialization.md',
+			'/apis/serial/Message.md',
+			'/apis/serial/Persistence.md',
+		]
+	},
+	{
+		text: "Experimental APIs",
 		children: [
 			'/apis/experimental/Serialization.md'
 		]
@@ -47,26 +59,44 @@ module.exports = {
 			},
 			{
 				text: "APIs",
-				link: "/apis/stable/",
+				link: "/apis/",
 				children: [
 					{
-						text: "Stable",
+						text: "DSLs",
 						children: [
 							{
-								text: "Command API",
-								link: "/apis/stable/Command"
+								text: "Command DSL",
+								link: "/apis/dsl/Command"
+							},
+							{
+								text: "Text Builder DSL",
+								link: "/apis/dsl/Text"
+							}
+						]
+					},
+					{
+						text: "Features",
+						children: [
+							{
+								text: "Registration API",
+								link: "/apis/feature/Registration"
+							},
+						]
+					},
+					{
+						text: "Serialization",
+						children: [
+							{
+								text: "Serialization API",
+								link: "/apis/serial/Serialization"
 							},
 							{
 								text: "Message API",
-								link: "/apis/stable/Message"
+								link: "/apis/serial/Message"
 							},
 							{
-								text: "Registration API",
-								link: "/apis/stable/Registration"
-							},
-							{
-								text: "Text API",
-								link: "/apis/stable/Text"
+								text: "Persistence API",
+								link: "/apis/serial/Persistence"
 							}
 						]
 					},
@@ -74,7 +104,7 @@ module.exports = {
 						text: "Experimental",
 						children: [
 							{
-								text: "Serialization API",
+								text: "NBT Serialization API",
 								link: "/apis/experimental/Serialization"
 							}
 						]

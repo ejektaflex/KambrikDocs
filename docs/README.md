@@ -7,7 +7,7 @@ actions:
     link: /main/Getting-Started.md
     type: primary
   - text: Features
-    link: /apis/stable/Command.md
+    link: /apis/dsl/Command.md
     type: secondary
 features:
   - title: Kotlin-Based
