@@ -27,13 +27,13 @@ const commonSidebar = [
 		children: [
 			'/apis/serial/Serialization.md',
 			'/apis/serial/Message.md',
-			'/apis/serial/Persistence.md',
 		]
 	},
 	{
 		text: "Experimental APIs",
 		children: [
-			'/apis/experimental/Serialization.md'
+			'/apis/experimental/Serialization.md',
+			'/apis/experimental/Persistence.md',
 		]
 	}
 ]
@@ -93,10 +93,6 @@ module.exports = {
 							{
 								text: "Message API",
 								link: "/apis/serial/Message"
-							},
-							{
-								text: "Persistence API",
-								link: "/apis/serial/Persistence"
 							}
 						]
 					},
@@ -106,6 +102,10 @@ module.exports = {
 							{
 								text: "NBT Serialization API",
 								link: "/apis/experimental/Serialization"
+							},
+							{
+								text: "Persistence API",
+								link: "/apis/experimental/Persistence"
 							}
 						]
 					}

@@ -4,6 +4,10 @@ Kambrik uses a simple type of data persistence to save data in different situati
 * On the server (Server Persistence)
 * In config files (Config Persistence)
 
+Unlike the persistence methods that many other libraries use, these simply read and write to files.
+Synchronization between the client and server is not done. Rather, this persistence API is 
+simply meant for data storage.
+
 ## Server Persistence
 
 If our data is serializable, we can store it on the server by declaring a variable like so, passing in an identifier and a default value:
@@ -53,6 +57,14 @@ The data is saved to `config/{mod_id}/{mod_id}_data.json`.
 
 ## Other Considerations
 
-In order to load and save these pieces of data, they must be serializable with `KotlinX Serialization`.
+In order to load and save these pieces of data, they must be serializable with `KotlinX Serialization`. As such, if they are Vanilla classes, they must also be marked with contextual.
+
+```kt
+var locations: MutableList<@Contextual BlockPos> by serverData(
+    Identifier("mymod", "my_names")
+) {
+    mutableListOf()
+}
+```
 
 
