@@ -37,7 +37,7 @@ repositories {
 }
 
 dependencies {
-    modImplementation("io.ejekta:kambrik:1.0.0")
+    modImplementation("io.ejekta:kambrik:VERSION")
 }
 ```
 

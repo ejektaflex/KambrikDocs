@@ -30,3 +30,9 @@ guesswork when it comes to using a new library.
 Code should be readable and understandable. Methods should clearly describe what they are doing when possible. When impossible, they should be documented/annotated.
 
 Docs and wikis, like this website itself, should not focus on documenting methods and properties, but instead focus on explaining how to use them together. If the method name must be verbose to express it's own purpose, then so be it.
+
+### Write Sensible DSLs
+
+Kotlin developers love DSLs, but they tend to start turning every Java builder that exists into one. Most times, you can take a Java builder object and use `builder.apply { /* ... */ }` to achieve the same result without creating a builder.
+
+Kambrik uses a DSL structure where it makes sense, but not wherever possible.

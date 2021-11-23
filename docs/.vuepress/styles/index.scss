@@ -19,6 +19,7 @@
 	--c-details-bg: var(--c-tip-bg);
 }
 
+
 html.dark {
 	--c-brand: #F43E5C;
 	--c-brand-light: #E95379;
@@ -55,6 +56,14 @@ html.dark div[class*="language-"].line-numbers-mode::after {
 	border-right: 1px solid var(--c-bg-lighter);
 }
 
+.theme-container > main > .theme-default-content {
+	transition: 1s;
+}
+
+.theme-container.dokka > main > .theme-default-content {
+	transition: 1s;
+	max-width: 100% !important;
+}
 
 /* Single backtick inline code */
 code {

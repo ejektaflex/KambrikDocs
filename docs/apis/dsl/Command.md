@@ -194,14 +194,10 @@ We can create arguments for commands rather easily as well:
 ```kt
 dispatcher.addCommand("test") {
 	"count" {
-		intArg("amt") runs {
-			val amt = getInteger(it, "amt")
-
-			for (i in 0 until amt) {
+		argInt("amt") runs { amt ->
+			for (i in 0 until amt()) {
 				println("Counting: $i")
 			}
-
-			1
 		}
 	}
 }
@@ -238,10 +234,51 @@ dispatcher.register(
 
 This creates a new command, `/test count (amt)`. It will print to the output `amt` number of times.
 
-Built in arguments:
-* `argString`, `argInt`, `argFloat`, `argBool`, `argIdentifier`
+As you can see, the lambda after the argument will always contain the argument expression. We can evaluate
+the argument inside of a command by invoking it (like `amt()` in the example above). 
 
-If you wish to use a different argument, there is always `argument<T>(type: ArgumentType<T>)` . 
+Nesting of arguments can be done like so:
+
+:::: code-group
+
+::: code-group-item Kambrik
+
+```kt
+"add" {
+    argInt("a") { a ->
+        argInt("b") { b ->
+            this runs {
+                println("Adding: ${a() + b()}")
+            }
+        }
+    }
+}
+```
+
+:::
+
+::: code-group-item Shorthand
+
+```kt
+"add" {
+    argInt("a") { a ->
+        argInt("b") runs { b ->
+            println("Adding: ${a() + b()}")
+        }
+    }
+}
+```
+
+:::
+
+::::
+
+
+Built in arguments:
+* `argString`, `argInt`, `argFloat`, `argBool`, `argIdentifier`, `argBlockPos`, `argColor`, `argIntRange`
+
+If you wish to use a different or nonstandard argument, there is always `argument<T>(type: ArgumentType<T>)` . 
+
 
 ### Suggestions
 

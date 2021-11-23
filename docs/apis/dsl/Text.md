@@ -20,8 +20,8 @@ In order to add a sibling text, put a `+` before your sibling!
 
 ```kt
 val text = textLiteral("Hello ") {
-    +textLiteral(player.displayName)
-    +textLiteral(", how are you?")
+    addLiteral(player.displayName)
+    addLiteral(", how are you?")
 }
 ```
 
@@ -31,8 +31,8 @@ You can substitute `textLiteral` for a string inside a builder to make your text
 
 ```kt
 val text = textLiteral("Hello ") {
-    +player.displayName
-    +", how are you?"
+    addLiteral(player.displayName)
+    addLiteral(", how are you?")
 }
 ```
 
@@ -53,26 +53,10 @@ We can use the `+` shorthand here, too.
 // except for the player's name, which is Aqua colored.
 val text = textLiteral("Hello ") {
     format(Formatting.GOLD, Formatting.ITALIC)
-    +player.displayName {
+    addLiteral(player.displayName) {
         format(Formatting.AQUA)
     }
-    +", how are you?"
-}
-```
-
-:::
-
-::: code-group-item Shorthand
-
-```kt
-// All of this text will be Gold colored and Italicized, 
-// except for the player's name, which is Aqua colored.
-val text = textLiteral("Hello ") {
-    +Formatting.GOLD; +Formatting.ITALIC
-    +player.displayName {
-        +Formatting.AQUA
-    }
-    +", how are you?"
+    addLiteral(", how are you?")
 }
 ```
 
@@ -101,15 +85,15 @@ We can also change some simple style properties without much effort:
 
 ```kt
 val test = textLiteral("Hello ") {
-    +Formatting.GOLD
-    +"Joe" {
+    format(Formatting.GOLD)
+    addLiteral("Joe") {
         color = 0x55ff33
         bold = true
         italics = true
         strikeThrough = false
         obfuscated = false
     }
-    +", how are you?"
+    addLiteral(", how are you?")
 }
 ```
 
@@ -118,15 +102,13 @@ val test = textLiteral("Hello ") {
 
 We can add hover events by setting the `hoverEvent` property.
 
-Unary plus `+` syntax applies here as well.
-
 :::: code-group
 
 ::: code-group-item Kambrik
 
 ```kt
 val test = textLiteral("Look at this bucket!") {
-    +Formatting.AQUA
+    format(Formatting.AQUA)
     hoverEvent = HoverEvent(HoverEvent.Action.SHOW_ITEM, HoverEvent.ItemStackContent(
         ItemStack(Items.BUCKET)
     ))
@@ -164,7 +146,7 @@ making the previous example even shorter:
 
 ```kt
 val test = textLiteral("Look at this bucket!") {
-    +Formatting.AQUA
+    format(Formatting.AQUA)
     onHoverShowItem(
         ItemStack(Items.BUCKET)
     )
@@ -203,7 +185,7 @@ Similarly, we can show Text when hovering over Text as well.
 val test = textLiteral("Hello World!") {
     onHoverShowText {
         format(Formatting.ITALIC)
-        +"How are you?"
+        addLiteral("How are you?")
     }
 }
 ```

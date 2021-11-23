@@ -20,6 +20,7 @@ const commonSidebar = [
 		text: "Features",
 		children: [
 			'/apis/feature/Registration.md',
+			'/apis/feature/Keybinds.md',
 		]
 	},
 	{
@@ -38,11 +39,64 @@ const commonSidebar = [
 	}
 ]
 
+const dokkaSidebar = [
+	{
+		text: "Dokka",
+		link: '/dokka'
+	},
+	{
+		text: "Kambrik",
+		link: '/dokka/-kambrik/io.ejekta.kambrik',
+		children: [
+			{
+				text: "Command",
+				link: '/dokka/-kambrik/io.ejekta.kambrik.command'
+			},
+			{
+				text: "Ext",
+				link: '/dokka/-kambrik/io.ejekta.kambrik.ext',
+				children: [
+					{
+						text: "Client",
+						link: '/dokka/-kambrik/io.ejekta.kambrik.ext.client'
+					},
+					{
+						text: "Fapi",
+						link: '/dokka/-kambrik/io.ejekta.kambrik.ext.fapi'
+					},
+					{
+						text: "Internal",
+						link: '/dokka/-kambrik/io.ejekta.kambrik.ext.internal'
+					},
+				]
+			}
+		]
+	}
+]
+
+const bountifulSidebar = [
+	{
+		text: 'Bountiful',
+		link: '/mods/bountiful',
+		children: [
+			{
+				text: 'Data File Structure',
+				link: '/mods/bountiful/wiki/FileStructure'
+			},
+			{
+				text: 'Customizing Bounties',
+				link: '/mods/bountiful/wiki/CustomizingBounties'
+			}
+		]
+	}
+]
+
 
 const sidebar: SidebarConfig = {
 	'/apis/': commonSidebar,
-	'/main/': commonSidebar//,
-	//'/dokka/': dokkaSidebar
+	'/main/': commonSidebar,
+	'/dokka': dokkaSidebar,
+	'/mods/bountiful': bountifulSidebar
 }
 
 module.exports = {
@@ -81,6 +135,10 @@ module.exports = {
 								text: "Registration API",
 								link: "/apis/feature/Registration"
 							},
+							{
+								text: "Keybind API",
+								link: "/apis/feature/Keybinds"
+							},
 						]
 					},
 					{
@@ -111,9 +169,23 @@ module.exports = {
 					}
 				]
 			},
+			// {
+			// 	text: "Extensions",
+			// 	link: "/extensions/"
+			// },
+			
+			// {
+			// 	text: "Dokka",
+			// 	link: "/dokka/"
+			// },
 			{
-				text: "Extensions",
-				link: "/extensions/"
+				text: "Mods",
+				children: [
+					{
+						text: "Bountiful",
+						link: "/mods/bountiful/"
+					}
+				]
 			},
 			{
 				text: "Changelog",
