@@ -1,0 +1,1 @@
+const e={key:"v-45d76d93",path:"/apis/experimental/Serialization.html",title:"NBT Serialization (WIP)",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"apis/experimental/Serialization.md",git:{updatedTime:1629532692e3,contributors:[]}};export{e as data};

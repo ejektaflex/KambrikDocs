@@ -1,0 +1,1 @@
+const t={key:"v-c3bf966c",path:"/main/Builtin-Commands.html",title:"Built-in Commands",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"Dump",slug:"dump",children:[]}],filePathRelative:"main/Builtin-Commands.md",git:{updatedTime:1629929304e3,contributors:[]}};export{t as data};

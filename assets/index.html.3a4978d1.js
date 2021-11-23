@@ -1,0 +1,1 @@
+const t={key:"v-63657f1c",path:"/mods/bountiful/",title:"Bountiful",lang:"en-US",frontmatter:{},excerpt:"",headers:[],filePathRelative:"mods/bountiful/README.md",git:{updatedTime:1637694426e3,contributors:[]}};export{t as data};

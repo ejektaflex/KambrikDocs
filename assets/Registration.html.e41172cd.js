@@ -1,0 +1,1 @@
+const t={key:"v-4be5990a",path:"/apis/feature/Registration.html",title:"Auto Registration",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"Registration",slug:"registration",children:[]},{level:2,title:"Content Types",slug:"content-types",children:[]}],filePathRelative:"apis/feature/Registration.md",git:{updatedTime:1630080057e3,contributors:[]}};export{t as data};
