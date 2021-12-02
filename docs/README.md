@@ -11,7 +11,7 @@ actions:
     type: secondary
 features:
   - title: Kotlin-Based
-    details: Kambrik uses Kotlin 1.5.31 under the hood, along with KotlinX Serialization for data serialization.
+    details: Kambrik uses the latest Kotlin under the hood, along with KotlinX Serialization for data serialization.
   - title: Fabric Integration
     details: We use existing Fabric APIs when possible to avoid reinventing the wheel.
   - title: Plug-And-Play
