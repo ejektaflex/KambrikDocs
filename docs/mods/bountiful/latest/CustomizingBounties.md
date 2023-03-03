@@ -13,8 +13,8 @@ For example, if we want to add a new objective to all pools:
 2) Add this to the file:
 ```json
 {
-    "content": [
-        {
+    "content": {
+        "a_new_torch_obj": {
             "type": "ITEM",
             "content": "minecraft:torch",
             "amount": {
@@ -23,7 +23,7 @@ For example, if we want to add a new objective to all pools:
             },
             "unitWorth": 100
         }
-    ]
+    }
 }
 ```
 3) Save it!
@@ -36,6 +36,10 @@ Lets break down what a typical entry is made of:
 * `content` - a textual representation of the content.
 * `amount` - the minimum and maximum amount of this content that can be picked.
 * `unitWorth` - how much a single amount of this objective is worth
+
+Each entry also has an ID. In the above example, the entry's ID is `a_new_torch_obj`.
+The ID is used so that modpack makers can change or remove specific entries as they
+see fit.
 
 ### Lesser Used Keys
 

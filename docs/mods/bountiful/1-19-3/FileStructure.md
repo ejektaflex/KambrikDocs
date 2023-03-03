@@ -40,8 +40,8 @@ E.g.:
 config
     bountiful
         bounty_pools
+            - farmer_objs.json
             - new_pool.json
-            - toolsmith.json
 ```
 
 By default, adding a new file will **add** all of the file's elements into the game data.

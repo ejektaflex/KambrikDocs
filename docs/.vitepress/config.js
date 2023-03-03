@@ -77,8 +77,25 @@ const bountifulSidebar = [
 		text: 'General Info',
 		items: [
 			{
+				text: 'Bounty Boards',
+				link: '/mods/bountiful/general/bounty-boards'
+			},
+			{
+				text: 'Reputation',
+				link: '/mods/bountiful/general/reputation'
+			},
+			{
+				text: 'Decrees',
+				link: '/mods/bountiful/general/decrees'
+			}
+		]
+	},
+	{
+		text: 'Advanced Info',
+		items: [
+			{
 				text: 'Bounty Generation',
-				link: '/mods/bountiful/general/generation'
+				link: '/mods/bountiful/advanced/generation'
 			}
 		]
 	},

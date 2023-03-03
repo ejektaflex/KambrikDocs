@@ -30,7 +30,7 @@ you will find two subfolders:
 * `bounty_pools`
 
 Just like with data packs, you can create Pools and Decrees, and add them here. 
-However, unlike data packs, you do not need to create a subfolder for each mod you
+However, *unlike data packs*, you do **not** need to create a subfolder for each mod you
 are adding compatibility for, since we are modifying the pool and decree data after 
 it has already been loaded. 
 
@@ -48,7 +48,71 @@ By default, adding a new file will **add** all of the file's elements into the g
 If you instead wish to **replace** the datapack/game data with your config data, you can add
 `"replace": true` to the top of your file's json object.
 
+
+## Changing Content
+
+Bountiful tries to balance itself against the vanilla game, but inevitably it's understandable that you've got some mods.
+Perhaps you want to make some things more expensive, or replace emeralds with a different type of currency. In that case,
+we can do what we call a "patch"
+
+### Entry Patching
+
+Lets say we want to take the farmer objective that asks the player to bring back some saplings, and make the saplings worth more.
+Maybe 50 is too low, and we want to increase it to 100. To do that, we would create a new file at 
+`config/bountiful/bounty_pools/farmer_objs.json` and put this in it:
+
+
+```json
+{
+	"content": {
+        "farmer_obj_oak_sapling": {
+            "unitWorth": 100
+        }
+    }
+}
+```
+
+When Bounty data loads, Bountiful will look for the ID `farmer_obj_oak_sapling` in the `farmer_objs` pool, and overwrite the 
+old `unitWorth` with the new one. Any JSON key can be patch-overwritten for any pool entry.
+
+We could use this method to do any sort of updates we want, such as:
+* Increase the worth of a reward or objective
+* Make a reward more or less rare
+* Change how many of the objective/reward can be asked for / given
+
+
 ## Removing Content
+
+
+### Removing a Single Entry
+
+If we wanted to take the earlier example, and instead completely remove the oak sapling from the farmer objective pool,
+we just need to do this:
+
+```json
+{
+	"content": {
+        "farmer_obj_oak_sapling": null
+    }
+}
+```
+
+
+### Entire Pool Wipes
+
+Removing all entries from a pool is simple. If you want to completely remove all entries from `farmer_objs.json`,
+write this text a new file at `config/bountiful/bounty_pools/farmer_objs.json`:
+
+```json
+{
+    "replace" true,
+	"content": {}
+}
+```
+
+This uses the `replace` key we mentioned earlier and replaces the entire contents of the `farmer_objs` pool with an empty list.
+
+### Bulk Removals
 
 If you want to remove certain decrees and pools from the game, Bountiful's config allows you to specify
 certain datapack/game data files which you would like to exclude from loading. For example:
@@ -56,7 +120,6 @@ certain datapack/game data files which you would like to exclude from loading. F
 * `bounty_pools/*` will exclude all pools from loading
 * `bounty_*` or just `*` would exclude all pools and decrees from loading 
 
-There is currently no way of removing specific entries from a given pool.
 
 ## Localizing Content
 
