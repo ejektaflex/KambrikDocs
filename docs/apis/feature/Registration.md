@@ -18,7 +18,7 @@ In order to do automatic registration, add a new entrypoint to your `fabric.mod.
 
 Now, registering the content is as simple as this:
 
-```kt
+```kotlin
 object MyModContent : KambrikAutoRegistrar {
     val MY_NEAT_ITEM = "neat_item" forItem NeatItem()
 }
@@ -30,7 +30,7 @@ Doing this will register your item as `your_mod_id:neat_item`. You can still ref
 
 Using this method, you can add many common types of content. Examples:
 
-```kt
+```kotlin
 object MyModContent : KambrikAutoRegistrar {
     val MY_NEAT_ITEM = "neat_item" forItem NeatItem()
     val MY_POTION = "my_potion" forPotion NeatPotion()

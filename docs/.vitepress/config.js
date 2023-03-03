@@ -1,0 +1,224 @@
+const commonSidebar = [
+	{
+		text: "Getting Started",
+		items: [
+			{ text: 'Getting Started', link: '/main/Getting-Started.md' },
+			{ text: 'Philosophy', link: '/main/Philosophy.md' },
+			{ text: 'Built-In Commands', link: '/main/Builtin-Commands.md' }
+		]
+	},
+	{
+		text: "DSLs",
+		items: [
+			{ text: 'Command DSL', link: '/apis/dsl/Command.md' },
+			{ text: 'Text DSL', link: '/apis/dsl/Text.md' }
+		]
+	},
+	{
+		text: "Features",
+		items: [
+			{ text: 'Auto-Registration', link: '/apis/feature/Registration.md' },
+			{ text: 'Keybinds', link: '/apis/feature/Keybinds.md' },
+		]
+	},
+	{
+		text: "Serialization",
+		items: [
+			{ text: 'Serialization', link: '/apis/serial/Serialization.md' },
+			{ text: 'Messages', link: '/apis/serial/Message.md' },
+		]
+	},
+	{
+		text: "Experimental APIs",
+		items: [
+			{ text: 'Serialization', link: '/apis/experimental/Serialization.md' },
+			{ text: 'Persistence', link: '/apis/experimental/Persistence.md' },
+		]
+	}
+]
+
+// const dokkaSidebar = [
+// 	{
+// 		text: "Dokka",
+// 		link: '/dokka'
+// 	},
+// 	{
+// 		text: "Kambrik",
+// 		link: '/dokka/-kambrik/io.ejekta.kambrik',
+// 		items: [
+// 			{
+// 				text: "Command",
+// 				link: '/dokka/-kambrik/io.ejekta.kambrik.command'
+// 			},
+// 			{
+// 				text: "Ext",
+// 				link: '/dokka/-kambrik/io.ejekta.kambrik.ext',
+// 				items: [
+// 					{
+// 						text: "Client",
+// 						link: '/dokka/-kambrik/io.ejekta.kambrik.ext.client'
+// 					},
+// 					{
+// 						text: "Fapi",
+// 						link: '/dokka/-kambrik/io.ejekta.kambrik.ext.fapi'
+// 					},
+// 					{
+// 						text: "Internal",
+// 						link: '/dokka/-kambrik/io.ejekta.kambrik.ext.internal'
+// 					},
+// 				]
+// 			}
+// 		]
+// 	}
+// ]
+
+const bountifulSidebar = [
+    {
+		text: 'General Info',
+		items: [
+			{
+				text: 'Bounty Generation',
+				link: '/mods/bountiful/general/generation'
+			}
+		]
+	},
+    {
+        text: 'Customization',
+        items: [
+            {
+                text: 'Latest (1.20)',
+                items: [
+                    {
+                        text: 'Data File Structure',
+                        link: '/mods/bountiful/latest/FileStructure'
+                    },
+                    {
+                        text: 'Customizing Bounties',
+                        link: '/mods/bountiful/latest/CustomizingBounties'
+                    }
+                ]
+            },
+            {
+                text: '1.19.3 and Below',
+                items: [
+                    {
+                        text: 'Data File Structure',
+                        link: '/mods/bountiful/1-19-3/FileStructure'
+                    },
+                    {
+                        text: 'Customizing Bounties',
+                        link: '/mods/bountiful/1-19-3/CustomizingBounties'
+                    }
+                ]
+            }
+        ]
+    }
+    
+]
+
+
+const sidebar = {
+	'/apis/': commonSidebar,
+	'/main/': commonSidebar,
+	//'/dokka': dokkaSidebar,
+	'/mods/bountiful': bountifulSidebar
+}
+
+console.log("DOOT");
+
+module.exports = {
+	title: "Kambrik",
+	description: "A Kotlin Library Mod for Fabric",
+    cleanUrls: true,
+	themeConfig: {
+		logo: '/images/android-chrome-192x192.png',
+		repo: 'https://github.com/ejektaflex/KambrikDocs/',
+		docsDir: '/docs/',
+		nav: [
+			{
+				text: "Getting Started",
+				link: "/main/Getting-Started"
+			},
+			{
+				text: "APIs",
+				items: [
+					{
+						text: "DSLs",
+						items: [
+							{
+								text: "Command DSL",
+								link: "/apis/dsl/Command"
+							},
+							{
+								text: "Text Builder DSL",
+								link: "/apis/dsl/Text"
+							}
+						]
+					},
+					{
+						text: "Features",
+						items: [
+							{
+								text: "Registration API",
+								link: "/apis/feature/Registration"
+							},
+							{
+								text: "Keybind API",
+								link: "/apis/feature/Keybinds"
+							},
+						]
+					},
+					{
+						text: "Serialization",
+						items: [
+							{
+								text: "Serialization API",
+								link: "/apis/serial/Serialization"
+							},
+							{
+								text: "Message API",
+								link: "/apis/serial/Message"
+							}
+						]
+					},
+					{
+						text: "Experimental",
+						items: [
+							{
+								text: "NBT Serialization API",
+								link: "/apis/experimental/Serialization"
+							},
+							{
+								text: "Persistence API",
+								link: "/apis/experimental/Persistence"
+							}
+						]
+					}
+				]
+			},
+			// {
+			// 	text: "Extensions",
+			// 	link: "/extensions/"
+			// },
+			
+			// {
+			// 	text: "Dokka",
+			// 	link: "/dokka/"
+			// },
+			{
+				text: "Mods",
+				items: [
+					{
+						text: "Bountiful",
+						link: "/mods/bountiful/"
+					}
+				]
+			},
+			{
+				text: "Changelog",
+				link: "https://github.com/ejektaflex/Kambrik/blob/master/CHANGELOG.md"
+			}
+		],
+		sidebar: sidebar
+	}
+}

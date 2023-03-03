@@ -8,6 +8,5 @@ You can find it on:
 * [CurseForge](https://www.curseforge.com/minecraft/mc-mods/bountiful-fabric).
 * [Modrinth](https://modrinth.com/mod/bountiful)
 
-You can also customize the objectives and rewards that Bountiful offers.
-* [Data File Structure](/mods/bountiful/wiki/FileStructure)
-* [Customizing Bounties](/mods/bountiful/wiki/CustomizingBounties)
+You can also customize the objectives and rewards that Bountiful offers. See the sidebar
+for version-specific information.

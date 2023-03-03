@@ -12,12 +12,12 @@ simply meant for data storage.
 
 If our data is serializable, we can store it on the server by declaring a variable like so, passing in an identifier and a default value:
 
-```kt
+```kotlin
 var serverData = ServerDataFile(file)
 var names: MutableList<String> by serverData.of("my_names") { mutableListOf() }
 ```
 Accessing it works just like any other variable
-```kt
+```kotlin
 names.add("Joe")
 names = mutableListOf("James", "Joe", "Jack")
 names.clear()
@@ -36,7 +36,7 @@ If you want to persist data and access it at any time, consider using [Config Pe
 
 We can also automatically store data in config files. The process is generally quite similar:
 
-```kt
+```kotlin
 var configData = ConfigDataFile(file)
 var faveNum by configData.of { 1 }
 // ...
@@ -51,7 +51,7 @@ Unlike Server Persistence, this data will be loaded as soon as it is requested. 
 
 In order to load and save these pieces of data, they must be serializable with `KotlinX Serialization`. As such, if they are Vanilla classes, they must also be marked with contextual.
 
-```kt
+```kotlin
 var locations: MutableList<@Contextual BlockPos> by myConfigDatafile.of {
     mutableListOf()
 }

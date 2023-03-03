@@ -3,21 +3,15 @@
 
 To add Kambrik to your project, add this to your Gradle build script:
 
-<CodeGroup>
+::: code-group
 
-<CodeGroupItem title="Kotlin Gradle">
-
-```kt
+```kotlin [Kotlin-Gradle]
 dependencies {
     modImplementation("io.ejekta:kambrik:VERSION")
 }
 ```
 
-</CodeGroupItem>
-
-<CodeGroupItem title="Gradle">
-
-```groovy
+```groovy [Gradle]
 repositories {
     mavenCentral()
 }
@@ -27,9 +21,7 @@ dependencies {
 }
 ```
 
-</CodeGroupItem>
-
-</CodeGroup>
+:::
 
 Where `VERSION` is the version of Kambrik that you want to use. You can find the latest version [here.](https://github.com/ejektaflex/Kambrik/packages/666830)
 

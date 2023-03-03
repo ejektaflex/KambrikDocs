@@ -13,7 +13,7 @@ To start, we can add normal commands inside of a `CommandRegistrationCallback`.
 A simple callback that adds a command might look like this:
 
 
-```kt
+```kotlin
 override fun onInitialize() {
 
 	//... init code ...
@@ -34,11 +34,11 @@ This creates a simple command: `/test`. It does not do anything yet, but it will
 
 In order to get this command to run some code, we can add `runs`.
 
-:::: code-group
+::: code-group
 
-::: code-group-item Kambrik
 
-```kt
+
+```kotlin [Kotlin]
 dispatcher.addCommand("test") {
 	this runs {
 		println("Hello, World!")
@@ -59,11 +59,7 @@ dispatcher.addCommand("test") {
 }
 ```
 
-:::
-
-::: code-group-item Vanilla
-
-```kt
+```kotlin [Vanilla]
 dispatcher.register(
 	CommandManager.literal("test")
 		.executes { 
@@ -89,8 +85,6 @@ dispatcher.register(
 
 :::
 
-::::
-
 This will have created a new command, `/test [apple/pear]` !
 
 ::: tip
@@ -102,7 +96,7 @@ As such, they should similarly return the number of successes that occurred.
 
 Execution blocks can clutter up our command tree. We can extract these code blocks into functions to make our code more concise.
 
-```kt
+```kotlin
 dispatcher.addCommand("test") {
 	literal("thing") {
 		this runs doFoo()
@@ -122,7 +116,7 @@ fun doFoo() = Command<ServerCommandSource> { ctx ->
 We can also call commands from other commands. To manually call a command from inside
 another command, run `command.run(context)`.
 
-```kt
+```kotlin
 dispatcher.addCommand("test") {
 	literal("thing") runs {
 		doFoo().run(it)
@@ -147,11 +141,9 @@ fun doBar() = Command<ServerCommandSource> { ctx ->
 
 We can add literals to commands in several different ways, as shown below:
 
-:::: code-group
+::: code-group
 
-::: code-group-item Kambrik
-
-```kt
+```kotlin [Kambrik]
 dispatcher.addCommand("test") {
 	literal("test") { /* ... */ }
 
@@ -160,11 +152,7 @@ dispatcher.addCommand("test") {
 }
 ```
 
-:::
-
-::: code-group-item Vanilla
-
-```kt
+```kotlin [Vanilla]
 dispatcher.register(
 	CommandManager.literal("test")
 		.then(
@@ -178,8 +166,6 @@ dispatcher.register(
 
 :::
 
-::::
-
 The shorthand version is usually preferred, and will be used throughout the remaining examples.
 
 
@@ -187,11 +173,9 @@ The shorthand version is usually preferred, and will be used throughout the rema
 
 We can create arguments for commands rather easily as well:
 
-:::: code-group
+::: code-group
 
-::: code-group-item Kambrik
-
-```kt
+```kotlin [Kambrik]
 dispatcher.addCommand("test") {
 	"count" {
 		argInt("amt") runs { amt ->
@@ -203,11 +187,7 @@ dispatcher.addCommand("test") {
 }
 ```
 
-:::
-
-::: code-group-item Vanilla
-
-```kt
+```kotlin [Vanilla]
 dispatcher.register(
 	CommandManager.literal("test")
 		.then(
@@ -230,8 +210,6 @@ dispatcher.register(
 
 :::
 
-::::
-
 This creates a new command, `/test count (amt)`. It will print to the output `amt` number of times.
 
 As you can see, the lambda after the argument will always contain the argument expression. We can evaluate
@@ -239,11 +217,9 @@ the argument inside of a command by invoking it (like `amt()` in the example abo
 
 Nesting of arguments can be done like so:
 
-:::: code-group
+::: code-group
 
-::: code-group-item Kambrik
-
-```kt
+```kotlin [Kambrik]
 "add" {
     argInt("a") { a ->
         argInt("b") { b ->
@@ -255,11 +231,7 @@ Nesting of arguments can be done like so:
 }
 ```
 
-:::
-
-::: code-group-item Shorthand
-
-```kt
+```kotlin [Shorthand]
 "add" {
     argInt("a") { a ->
         argInt("b") runs { b ->
@@ -270,8 +242,6 @@ Nesting of arguments can be done like so:
 ```
 
 :::
-
-::::
 
 
 Built in arguments:
@@ -286,11 +256,9 @@ We can also provide suggestions for different arguments!
 
 To do this, we can use `suggestionsList` to build a suggestions list.
 
-:::: code-group
+::: code-group
 
-::: code-group-item Kambrik
-
-```kt
+```kotlin [Kambrik]
 dispatcher.addCommand("fruit") {
 	"eat" {
 		val fruitIdeas = suggestionList { listOf("apple", "pear", "banana") }
@@ -302,11 +270,7 @@ dispatcher.addCommand("fruit") {
 }
 ```
 
-::: 
-
-::: code-group-item Vanilla
-
-```kt
+```kotlin [Vanilla]
 dispatcher.register(
 	CommandManager.literal("fruit")
 		.then(
@@ -326,8 +290,6 @@ dispatcher.register(
 
 :::
 
-::::
-
 If you want to provide tooltips, you can instead use `suggestionListTooltipped {}`.
 
 
@@ -336,7 +298,7 @@ If you want to provide tooltips, you can instead use `suggestionListTooltipped {
 Some commands might have certain requirements in order to be run. For example, a player might need
 to have the right permissions. Requirements work identically to Brigadier:
 
-```kt
+```kotlin
 dispatcher.addCommand("greet") {
 	// only works when "Joe" is online
 	"joe" {
@@ -353,7 +315,7 @@ dispatcher.addCommand("greet") {
 
 There are also shortcut functions for common requirements here:
 
-```kt
+```kotlin
 dispatcher.addCommand("test") {
 	requiresCreative()
 	// OR
@@ -368,11 +330,9 @@ dispatcher.addCommand("test") {
 
 Fabric allows us to also specify client commands. We don't register these in a serverside callback, but instead inside of the mod initializer:
 
-:::: code-group
+::: code-group
 
-::: code-group-item Kambrik
-
-```kt
+```kotlin [Kambrik]
 override fun onInitialize() {
 
 	//... init code ...
@@ -384,11 +344,7 @@ override fun onInitialize() {
 }
 ```
 
-:::
-
-::: code-group-item Vanilla
-
-```kt
+```kotlin [Vanilla]
 override fun onInitialize() {
 
 	//... init code ...
@@ -404,8 +360,6 @@ override fun onInitialize() {
 
 :::
 
-::::
-
 
 ## Command Examples
 
@@ -415,7 +369,7 @@ This section contains some examples that show how you might do some common tasks
 
 This example lets you pick a registry, and prints all IDs in that registry to the log.
 
-```kt
+```kotlin
 dispatcher.addCommand("example") {
 	"dump" {
 		val dumpables = suggestionList { 

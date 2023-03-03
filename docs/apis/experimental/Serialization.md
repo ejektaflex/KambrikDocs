@@ -6,7 +6,7 @@ Similarly to Kotlinx.Serialization's ability to turn Kotlin objects into JSON da
 allows us to turn Kotlin objects into NBT elements and back.
 
 
-```kt
+```kotlin
 @Serializable
 data class TestNpc(val name: String, val age: Int)
 

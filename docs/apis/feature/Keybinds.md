@@ -6,7 +6,7 @@ Kambrik lets us easily register new keybinds, with several options available to 
 
 
 ### Keyboard Keybinds
-```kt
+```kotlin
 val eraseKeybind = Kambrik.Input.registerKeyboardBinding(
     GLFW.GLFW_KEY_BACKSPACE,
     keyTranslation = "mod.key.erase",
@@ -18,7 +18,7 @@ val eraseKeybind = Kambrik.Input.registerKeyboardBinding(
 ```
 
 ### Mouse Keybinds
-```kt
+```kotlin
 val mouseKeybind = Kambrik.Input.registerMouseBinding(
     GLFW.GLFW_MOUSE_BUTTON_1,
     keyTranslation = "mod.key.dothing",

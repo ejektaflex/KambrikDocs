@@ -1,0 +1,31 @@
+
+:root {
+	--vp-c-brand: #F43E5C;
+	--vp-c-brand-light: #E84A72;
+	--vp-c-brand-lighter: #e36283;
+	--vp-c-brand-dark: #d3344f;
+	--vp-c-brand-darker: #972538;
+
+	--vp-c-bg: #fce9e4;
+
+
+	 --vp-c-border: #F9CBBE;
+
+	// --c-bg: #fce9e4;
+
+	// --c-text: #1A1C23;
+
+	// --code-bg-color: #FDF0ED;
+
+	// --c-tip: #1EB980;
+
+	// --c-tip-bg: #FADAD1;
+
+	// --c-details-bg: var(--c-tip-bg);
+}
+
+.dark {
+	--vp-c-bg: #1e1e20;
+
+	--vp-c-border: var(--vp-c-brand);
+}

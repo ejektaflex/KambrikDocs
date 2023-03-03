@@ -18,7 +18,7 @@ The Messages API allows us to send an object over the network, from the Client t
 To make a serializable object, it must have the `@Serializable` annotation 
 and inherit from `ClientMsg` or `ServerMsg`.
 
-```kt
+```kotlin
 import io.ejekta.kambrik.api.message.ClientMsg
 
 @Serializable
@@ -31,7 +31,7 @@ data class TestMsg(val num: Int) : ClientMsg() {
 
 Registration and usage of these messages is simple.
 
-```kt
+```kotlin
 // Registration (one time, in onInitialize):
 Kambrik.Messages.registerClientMessage(
 	TestMsg.serializer(), 
@@ -61,7 +61,7 @@ We can also serialize a limited selection of classes from Vanilla.
 
 To do so, we mark the property/type with `@Contextual`:
 
-```kt
+```kotlin
 @Serializable
 class TellServerHello(val pos: @Contextual BlockPos) : ServerMsg() {
     override fun onServerReceived(ctx: MsgContext) {
@@ -79,7 +79,7 @@ We can also reference some values that would otherwise be unserializable, and pa
 
 Sending reference serializers works exactly like before, with a `@Contextual` annotation. In this example we send the server a Bucket:
 
-```kt
+```kotlin
 @Serializable
 class BanItem(val item: @Contextual Item) : ServerMsg() {
     override fun onServerReceived(ctx: MsgContext) {
@@ -108,7 +108,7 @@ a message being sent to all players that are 'tracking' (within view distance of
 the world origin.
 
 
-```kt
+```kotlin
 @Serializable
 class PurgeArea : ClientMsg() {
 	override fun onClientReceived(ctx: MsgContext) {
@@ -133,11 +133,9 @@ class PurgeArea : ClientMsg() {
 
 This example shows how the Messages API could save us a lot of code:
 
-<CodeGroup>
+::: code-group
 
-<CodeGroupItem title="Kambrik">
-
-```kt
+```kotlin [Kambrik]
 // Message Definition
 @Serializable
 class PlaceItemAtPosition(
@@ -158,11 +156,7 @@ Kambrik.Message.registerServerMessage(
 PlaceItemAtPosition(Items.BUCKET, 3, BlockPos.ORIGIN).sendToServer()
 ```
 
-</CodeGroupItem>
-
-<CodeGroupItem title="Vanilla/Fabric">
-
-```kt
+```kotlin [Vanilla/Fabric]
 // Register packet
 ClientPlayNetworking.registerGlobalReceiver(Identifier("kambrik", "place_item")) { 
 	client, handler, buf, responseSender ->
@@ -191,6 +185,4 @@ ClientPlayNetworking.send(
 )
 ```
 
-</CodeGroupItem>
-
-</CodeGroup>
+:::

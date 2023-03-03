@@ -6,7 +6,7 @@ Creating many types of `MutableText` can be done more easily with Kambrik's Text
 
 Here are some (not all) ways of creating some simple `Text`:
 
-```kt
+```kotlin
 val textA = textLiteral("Hello!")
 val textB = textTranslate("my.translation.key")
 val textC = textKeybind("key.jump")
@@ -16,9 +16,9 @@ val textC = textKeybind("key.jump")
 
 Adding sibling texts can be done by nesting them inside of the main text, preceded by a unary `+` symbol.
 
-In order to add a sibling text, put a `+` before your sibling!
+In order to add a sibling text, use the `add*` methods within the DSL block:
 
-```kt
+```kotlin
 val text = textLiteral("Hello ") {
     addLiteral(player.displayName)
     addLiteral(", how are you?")
@@ -29,7 +29,7 @@ val text = textLiteral("Hello ") {
 
 You can substitute `textLiteral` for a string inside a builder to make your text shorter.
 
-```kt
+```kotlin
 val text = textLiteral("Hello ") {
     addLiteral(player.displayName)
     addLiteral(", how are you?")
@@ -42,13 +42,10 @@ Sibling texts inherit the style of their parent, unless they specify their own s
 
 We can add Formatting with `format(...formattings)`.
 
-We can use the `+` shorthand here, too.
 
-:::: code-group
+::: code-group
 
-::: code-group-item Kambrik
-
-```kt
+```kotlin [Kambrik]
 // All of this text will be Gold colored and Italicized, 
 // except for the player's name, which is Aqua colored.
 val text = textLiteral("Hello ") {
@@ -60,11 +57,7 @@ val text = textLiteral("Hello ") {
 }
 ```
 
-:::
-
-::: code-group-item Vanilla
-
-```kt
+```kotlin [Vanilla]
 // All of this text will be Gold colored and Italicized, 
 // except for the player's name, which is Aqua colored.
 val text = LiteralText("Hello ")
@@ -78,12 +71,10 @@ val text = LiteralText("Hello ")
 
 :::
 
-::::
-
 
 We can also change some simple style properties without much effort:
 
-```kt
+```kotlin
 val test = textLiteral("Hello ") {
     format(Formatting.GOLD)
     addLiteral("Joe") {
@@ -102,11 +93,9 @@ val test = textLiteral("Hello ") {
 
 We can add hover events by setting the `hoverEvent` property.
 
-:::: code-group
+::: code-group
 
-::: code-group-item Kambrik
-
-```kt
+```kotlin [Kambrik]
 val test = textLiteral("Look at this bucket!") {
     format(Formatting.AQUA)
     hoverEvent = HoverEvent(HoverEvent.Action.SHOW_ITEM, HoverEvent.ItemStackContent(
@@ -115,11 +104,7 @@ val test = textLiteral("Look at this bucket!") {
 }
 ```
 
-:::
-
-::: code-group-item Vanilla
-
-```kt
+```kotlin [Vanilla]
 val test = LiteralText("Look at this bucket!")
     .formatted(Formatting.AQUA)
     .styled { 
@@ -133,18 +118,14 @@ val test = LiteralText("Look at this bucket!")
 
 :::
 
-::::
-
 ### Showing ItemStack text on Hover
 
 We also have a shorthand for showing ItemStack tooltips when hovering over text,
 making the previous example even shorter:
 
-:::: code-group
+::: code-group
 
-::: code-group-item Kambrik
-
-```kt
+```kotlin [Kambrik]
 val test = textLiteral("Look at this bucket!") {
     format(Formatting.AQUA)
     onHoverShowItem(
@@ -153,11 +134,7 @@ val test = textLiteral("Look at this bucket!") {
 }
 ```
 
-:::
-
-::: code-group-item Vanilla
-
-```kt
+```kotlin [Vanilla]
 val test = LiteralText("Look at this bucket!")
     .formatted(Formatting.AQUA)
     .styled { 
@@ -171,17 +148,13 @@ val test = LiteralText("Look at this bucket!")
 
 :::
 
-::::
-
 ### Showing Text on Hover
 
 Similarly, we can show Text when hovering over Text as well.
 
-:::: code-group
+::: code-group
 
-::: code-group-item Kambrik
-
-```kt
+```kotlin [Kambrik]
 val test = textLiteral("Hello World!") {
     onHoverShowText {
         format(Formatting.ITALIC)
@@ -190,11 +163,7 @@ val test = textLiteral("Hello World!") {
 }
 ```
 
-:::
-
-::: code-group-item Vanilla
-
-```kt
+```kotlin [Vanilla]
 val test = LiteralText("Hello World!")
     .styled { 
         it.withHoverEvent(
@@ -209,15 +178,13 @@ val test = LiteralText("Hello World!")
 
 :::
 
-::::
-
 
 <!--
 ### Showing Entities on Hover
 
 Showing entities on hover is simple, too:
 
-```kt
+```kotlin
 val test = textLiteral("Look at this player!") {
     +Formatting.AQUA
     onHoverShowEntity(

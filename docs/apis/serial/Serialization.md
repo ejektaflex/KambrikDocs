@@ -8,7 +8,7 @@ To access the basic Kambrik JSON format, use `Kambrik.Serial.Format`.
 ## Serializing Data
 
 Serializing data works just like regular KotlinX Serialization:
-```kt
+```kotlin
 @Serializable
 data class FooData(val foo: Boolean, val bar: Int)
 
@@ -29,7 +29,7 @@ println(fooBar) //=> FooBar(foo=false, bar=5)
 
 Using a custom serializer module is as easy as:
 
-```kt
+```kotlin
 val format = Kambrik.Serial.formatFor(our_custom_module)
 
 val data = format.encodeToString(
@@ -42,7 +42,7 @@ If you want to access or extend Kambrik's serializer module, you can access it v
 
 In order to serialize Vanilla data, we can add the annotation `@Contextual` to our type.
 
-```kt
+```kotlin
 @Serializable
 data class FooData(val pos: @Contextual BlockPos)
 ```
