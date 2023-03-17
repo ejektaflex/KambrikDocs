@@ -103,7 +103,7 @@ const bountifulSidebar = [
         text: 'Customization',
         items: [
             {
-                text: 'Latest (1.20)',
+                text: 'Latest (1.19.4+)',
                 items: [
                     {
                         text: 'Data File Structure',

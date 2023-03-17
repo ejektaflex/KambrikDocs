@@ -53,7 +53,7 @@ If you instead wish to **replace** the datapack/game data with your config data,
 
 Bountiful tries to balance itself against the vanilla game, but inevitably it's understandable that you've got some mods.
 Perhaps you want to make some things more expensive, or replace emeralds with a different type of currency. In that case,
-we can do what we call a "patch"
+we can do what we call a "patch".
 
 ### Entry Patching
 
@@ -87,7 +87,7 @@ We could use this method to do any sort of updates we want, such as:
 ### Removing a Single Entry
 
 If we wanted to take the earlier example, and instead completely remove the oak sapling from the farmer objective pool,
-we just need to do this:
+we just need to do this refer to it by its ID and set it to null in `config/bountiful/bounty_pools/farmer_objs.json`:
 
 ```json
 {

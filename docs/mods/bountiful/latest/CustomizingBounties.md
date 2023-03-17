@@ -47,16 +47,14 @@ Here are some other keys that are used somewhat more infrequently:
 * `rarity` - how rare this entry is. more rare entries show up less often (but become
     more common at higher reputations). Valid values are `COMMON`, `UNCOMMON`, `RARE`, `EPIC` and `LEGENDARY`
 * `weightMult` - in case you'd like to further tweak the weight a bit, for some reason
-    * Use sparingly, and try stick with changing `rarity` if you can
+    * Use sparingly, and try stick with changing `rarity` if you can.
 * `timeMult` - in case you want to give the user more time to complete this bounty
-* `translation` - a translation key, for if you want to give this entry a custom name.
-    This takes precedence over the `name` key.
 * `name` - literal text, in case you want an unlocalized name for this entry
-    * Please stick with translation keys when you can so that your modpack can be localized.
-    The name feature is intended for users who do not plan to release their configs
-    as part of a public modpack.
+    * If no name is supplied, some bounty types (e.g. `item_tag` and `criteria` will instead default to a localization key)
+* `icon` - A reference to an item that you'd like to use in place of the default icon for this bounty.
 * `repRequired` - sets a hard requirement on the board reputation needed to be given this entry.
-    Can be useful, but is never used in the default bounty data. Only works for rewards.
+    * Can be useful, but is almost never used in the default bounty data. Only works for rewards.
+* `conditions` - Used only for `criteria` type bounties. See the Criteria entry type below.
 * `forbids` - a list of other entries that you never want to see opposed to this one. E.g. if
     you never want an iron ingot to be an objective where iron blocks are a reward, you can do this:
 ```json
@@ -116,4 +114,57 @@ follows:
 * `%PLAYER_POSITION%` -> gets replaced with the `x y z` coordinates of the submitting player
 * `%BOUNTY_AMOUNT%` -> the amount that was assigned to this entry
 
+### Criteria Entries (`CRITERIA`)
 
+Criteria objectives are special objectives that allow you to hook into the game's Criteria system. Minecraft
+emits trigger events when certain things occur in game - and we can hook check for these triggers in
+our bounties! For example:
+
+```json
+"new_criteria_test": {
+    "type": "criteria",
+    "content": "minecraft:item_used_on_block",
+    "conditions": {
+        "location": {
+            "block": {
+                "tag": "minecraft:campfires"
+            }
+        },
+        "item": {
+            "items": [
+                "minecraft:porkchop"
+            ]
+        }
+    },
+    "amount": {
+        "min": 1,
+        "max": 4
+    },
+    "unitWorth": 150,
+}
+```
+
+This Criteria objective allows us to create an objective that asks players to use a Porkchop on a Campfire up to four times
+depending on the bounty. Each time a criteria trigger is activated, this objective increases by 1.
+
+::: tip
+Note: If we were to add this objective to the game, we would also want to add an `icon` and a `name` key. Otherwise, Bountiful
+doesn't know what to call your new Criteria objective or what icon to use for it!
+:::
+
+
+A list of triggers that can be used can be found [on the Minecraft wiki](https://minecraft.fandom.com/wiki/Advancement/JSON_format#List_of_triggers).
+
+The trigger name will become the `content` key and the conditions are stored in the `conditions` key.
+
+::: tip
+There are two triggers that cannot be used as Criteria objectives:
+* `minecraft:enter_block`
+* `minecraft:tick`
+
+This is to prevent Bountiful from performing too many Criterion checks.
+:::
+
+It is also worth noting that unlike the Advancement system, these Criteria have no "memory". As such, 
+certain conditions such as the `unique_entity_types` condition from the `minecraft:killed_by_crossbow` criteria trigger
+may may not function correctly, because they can not "remember" how many unique entity types have been killed.
