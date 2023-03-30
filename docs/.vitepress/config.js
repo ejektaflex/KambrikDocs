@@ -234,6 +234,10 @@ module.exports = {
 			{
 				text: "Changelog",
 				link: "https://github.com/ejektaflex/Kambrik/blob/master/CHANGELOG.md"
+			},
+			{
+				text: "Discord",
+				link: "https://discord.gg/BaH88W9"
 			}
 		],
 		sidebar: sidebar
