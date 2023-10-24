@@ -5,7 +5,7 @@ Customizing bounty objectives & rewards is quite easy. All you need to do is cre
 a new file that matches the name of the pool/decree you are trying to override,
 and add your JSON entries there.
 
-You can view the existing file structure [here](https://github.com/ejektaflex/Bountiful-Fabric/tree/master/src/main/resources/data/bountiful).
+You can view the existing file structure [here](https://github.com/ejektaflex/Bountiful/tree/1.19.2-legacy-fabric/src/main/resources/data/bountiful).
 
 For example, if we want to add a new objective to all pools:
 

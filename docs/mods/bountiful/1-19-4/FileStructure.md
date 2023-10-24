@@ -15,12 +15,12 @@ from the [Minecraft wiki](https://minecraft.fandom.com/wiki/Data_pack). You
 should come to an understanding that data packs override data from the vanilla
 game, and from other mods. In this case, you want to create a data pack that
 overrides Bountiful's data files, which can be found 
-[right here](https://github.com/ejektaflex/Bountiful/tree/6.0.3-1.20.1/datagen/data/content/common/bountiful).
-
-An example data pack can be found [on Modrinth](https://modrinth.com/datapack/bountiful-examplepack).
+[right here](https://github.com/ejektaflex/Bountiful/tree/dev/datagen/data/content/common/bountiful).
 
 To aid in the creation of Data Packs, you may want to use a mod such as [Open Loader](https://www.curseforge.com/minecraft/mc-mods/open-loader)
 that allows global data pack loading across all worlds.
+
+
 
 
 ## Config Pack

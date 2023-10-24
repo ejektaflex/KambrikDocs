@@ -103,7 +103,7 @@ const bountifulSidebar = [
         text: 'Customization',
         items: [
             {
-                text: 'Latest (1.19.4+)',
+                text: 'Latest (1.20.1+)',
                 items: [
                     {
                         text: 'Data File Structure',
@@ -112,6 +112,19 @@ const bountifulSidebar = [
                     {
                         text: 'Customizing Bounties',
                         link: '/mods/bountiful/latest/CustomizingBounties'
+                    }
+                ]
+            },
+			{
+                text: '1.19.4',
+                items: [
+                    {
+                        text: 'Data File Structure',
+                        link: '/mods/bountiful/1-19-4/FileStructure'
+                    },
+                    {
+                        text: 'Customizing Bounties',
+                        link: '/mods/bountiful/1-19-4/CustomizingBounties'
                     }
                 ]
             },

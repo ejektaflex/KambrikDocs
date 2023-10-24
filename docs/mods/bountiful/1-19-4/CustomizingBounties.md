@@ -5,7 +5,7 @@ Customizing bounty objectives & rewards is quite easy. All you need to do is cre
 a new file that matches the name of the pool/decree you are trying to override,
 and add your JSON entries there.
 
-You can view the existing file structure [here](https://github.com/ejektaflex/Bountiful/tree/6.0.3-1.20.1/datagen/data/content/common/bountiful).
+You can view the existing file structure [here](https://github.com/ejektaflex/Bountiful/tree/1.19.4/common/src/main/resources/data/bountiful).
 
 For example, if we want to add a new objective to all pools:
 
@@ -15,7 +15,7 @@ For example, if we want to add a new objective to all pools:
 {
     "content": {
         "a_new_torch_obj": {
-            "type": "item",
+            "type": "ITEM",
             "content": "minecraft:torch",
             "amount": {
                 "min": 1,
@@ -32,7 +32,7 @@ For example, if we want to add a new objective to all pools:
 ## A Typical Entry
 
 Lets break down what a typical entry is made of:
-* `type` - the type of bounty we are making. Valid are: `item`, `item_tag`, `entity`, `criteria`.
+* `type` - the type of bounty we are making. Valid are: `ITEM`, `ITEM_TAG`, `ENTITY`, `COMMAND`.
 * `content` - a textual representation of the content.
 * `amount` - the minimum and maximum amount of this content that can be picked.
 * `unitWorth` - how much a single amount of this objective is worth
@@ -168,28 +168,3 @@ This is to prevent Bountiful from performing too many Criterion checks.
 It is also worth noting that unlike the Advancement system, these Criteria have no "memory". As such, 
 certain conditions such as the `unique_entity_types` condition from the `minecraft:killed_by_crossbow` criteria trigger
 may may not function correctly, because they can not "remember" how many unique entity types have been killed.
-
-
-## Decree Creation
-
-Decrees determine which pools are used when a bounty is generated. An example Decree looks like this (pulled from `armorer.json`):
-```json
-{
-	"objectives": [
-		"armorer_objs",
-		"_metal_objs",
-		"_all_objs"
-	],
-	"rewards": [
-		"armorer_rews",
-		"_all_rews",
-		"_equip_rews"
-	]
-}
-```
-As you can see, it pulls from three different objective pools and three different reward pools.
-
-### Lesser Used Keys
-
-Here are some other keys that are used somewhat more infrequently:
-* `name` - if you'd like to use a localized name override for this bounty, you can supply it here. Note that clients will also need a copy of this file if you wish for it to show up for clients as well.
