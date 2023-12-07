@@ -11,3 +11,7 @@ You can find it on:
 
 You can also customize the objectives and rewards that Bountiful offers. See the sidebar
 for version-specific information.
+
+### Changelog
+
+[View the Changelog on GitHub](https://github.com/ejektaflex/Bountiful/blob/dev/CHANGELOG.md)

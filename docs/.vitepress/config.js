@@ -102,6 +102,19 @@ const bountifulSidebar = [
     {
         text: 'Customization',
         items: [
+			{
+                text: 'Preview (Unreleased)',
+                items: [
+                    {
+                        text: 'Data File Structure',
+                        link: '/mods/bountiful/preview/FileStructure'
+                    },
+                    {
+                        text: 'Customizing Bounties',
+                        link: '/mods/bountiful/preview/CustomizingBounties'
+                    }
+                ]
+            },
             {
                 text: 'Latest (1.20.1+)',
                 items: [
@@ -245,14 +258,11 @@ module.exports = {
 				]
 			},
 			{
-				text: "Changelog",
-				link: "https://github.com/ejektaflex/Kambrik/blob/master/CHANGELOG.md"
-			},
-			{
 				text: "Discord",
 				link: "https://discord.gg/BaH88W9"
 			}
 		],
 		sidebar: sidebar
-	}
+	},
+	markdown: { theme: { light: 'material-theme-lighter', dark: 'material-theme' } }
 }

@@ -38,7 +38,7 @@ it has already been loaded.
 
 E.g.:
 
-```
+```yaml
 config
     bountiful
         bounty_pools
