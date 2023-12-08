@@ -89,17 +89,23 @@ Now, we go through each group and try to find an objective that can total up to 
 Now, we came up with two objectives! We're still 50 worth away from meeting the reward value... But often times, this is considered *close enough*.
 Bounty generation is done!
 
-At the end, we now have a Bounty with objectives:
-* `8x Wheat`
-* `6x Mushroom Stew`
+At the end, we now have a Bounty with rewards:
+* `3x Apples (250 each, 750 total)`
+* `10x Cookies (150 each, 1500 total)`
+* Sum: `750 + 1500 = 2250`
 
-And rewards:
-* `3x Apples`
-* `10x Cookies`
+And objectives:
+* `8x Wheat (50 each, 400 total)`
+* `6x Mushroom Stew (300 each, 1800 total)`
+* Sum: `400 + 1800 = 2200`
 
-But what if it's not enough?
+When we compare these two final values, you'll note that the rewards are worth a *little* bit more than the objectives, but that's okay. This small amount of variance shifts
+from  bounty to bounty, and means that some bounties are more worthwhile than others. It also ensures that the algorithm isn't always picking the best options, but rather an
+interesting variety of options.
 
-In extreme cases, where the objective worth is still not close to the reward worth, Bountiful will aggressively continue to add objectives
+But what if it's not enough? What if there were no rewards that had a high enough value / amount that could total up to 2250? 
+
+In extreme cases where the objective worth is still not close to the reward worth, Bountiful will aggressively continue to add objectives
 until it meets at least half of the reward worth. Generally, the only reason this would happen is if you have a couple of really big rewards
 and do not have objectives that are worth enough to satisfy these rewards - if you ever see more than three objectives on a bounty, you
 probably need some more high value objectives.
