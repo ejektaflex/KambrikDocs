@@ -111,3 +111,7 @@ and do not have objectives that are worth enough to satisfy these rewards - if y
 probably need some more high value objectives.
 
 
+But what about the bounty board's Reputation? Doesn't that give a discount?
+
+Yes! As the board's reputation goes up, the discount also increases. This lowers the objective requirements needed to complete an equivalent reward. For example, at a 10% discount,
+rewards worth 1000 will be matched with objectives worth 900. Increasing board Reputation therefore increases the number of worthwhile bounties, and makes them easier to complete!
