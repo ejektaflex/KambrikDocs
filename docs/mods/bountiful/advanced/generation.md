@@ -63,7 +63,7 @@ min and max value amounts. For example:
 ```
 
 The Bounty system might pick these two rewards for the Farming decree. It might pick 3 apples and 10 cookies.
-Apples are worth 250, and cookies are worth 150, so the total "worth" of our Bounty will be `(3*250) + (10*150) = 750 + 1500 = 2250`.
+Three apples are each worth 250 for a total of 750, and 10 cookies are each worth 150 for a total of 1500, so the total "worth" of our Bounty will be `750 + 1500 = 2250`.
 
 The odds of a specific reward being picked are dependent on the reward's rarity and the board's reputation. Rewards
 with higher rarity will be picked less often as rewards.

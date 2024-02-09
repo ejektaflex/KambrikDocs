@@ -19,3 +19,6 @@ This means that you can take a Bounty from the Board and it won't disappear from
 friend's board. This means that if you see a particularly good bounty, you can tell
 your friends so that they can pick up their own copy!
 
+## Recipe
+
+![Board Recipe](../longterm/bountyboard.png)

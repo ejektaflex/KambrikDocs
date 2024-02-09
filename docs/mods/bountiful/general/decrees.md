@@ -8,3 +8,8 @@ and rewards related to armorsmithing. The "Farming" Decree adds new bounties rel
 farming. These Decrees can be mix-and-matched at a Board, too! If you put both an Armorsmithing
 and a Farming Decree on the same Board, you might see Bounties show up that ask you
 to bring back some wheat in return for iron armor!
+* Note: As of 1.20.4+, decree mixing can be disabled via the config (`bounty.allowDecreeMixing`).
+
+## Recipe
+
+![Decree Recipe](../longterm/decree.png)
