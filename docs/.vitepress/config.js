@@ -155,7 +155,7 @@ const bountifulSidebar = [
                 ]
             },
 			{
-				text: 'Forge Legacy: 1.14',
+				text: 'Forge Legacy: 1.14-1.16',
 				items: [
 					{
 						text: 'Commands',
