@@ -195,4 +195,5 @@ Here are some other keys that are used somewhat more infrequently:
 * `name` - if you'd like to use a localized name override for this bounty, you can supply it here. Note that clients will also need a copy of this file if you wish for it to show up for clients as well.
 * `canSpawn` - whether you'd like the Decree to spawn on Bounty Boards. (default: `true`)
 * `canReveal` - whether a blank Decree can be revealed to be this Decree when placed on a Bounty Board. (default: `true`)
+* `canWanderBuy` determines whether this Decree can be found in the stocks of Wandering Traders (default: `true`) 
 * `replace` - whether you'd like to completely overwrite existing matching Decree data with this data. (default: `false`)

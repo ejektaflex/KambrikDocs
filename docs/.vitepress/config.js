@@ -142,7 +142,7 @@ const bountifulSidebar = [
                 ]
             },
             {
-                text: '1.19.3 and Below',
+                text: 'Fabric Legacy: 1.17-1.19.3',
                 items: [
                     {
                         text: 'Data File Structure',
@@ -153,7 +153,33 @@ const bountifulSidebar = [
                         link: '/mods/bountiful/1-19-3/CustomizingBounties'
                     }
                 ]
-            }
+            },
+			{
+				text: 'Forge Legacy: 1.14',
+				items: [
+					{
+						text: 'Commands',
+						link: '/mods/bountiful/1-14/Commands'
+					},
+					{
+						text: 'Customizing Bounties',
+						link: '/mods/bountiful/1-14/CustomizingBounties'
+					}
+				]
+			},
+			{
+				text: 'Forge Legacy: 1.12',
+				items: [
+					{
+						text: 'Commands',
+						link: '/mods/bountiful/1-12/Commands'
+					},
+					{
+						text: 'Customizing Bounties',
+						link: '/mods/bountiful/1-12/CustomizingBounties'
+					}
+				]
+			}
         ]
     }
     
