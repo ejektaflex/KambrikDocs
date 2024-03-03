@@ -102,21 +102,8 @@ const bountifulSidebar = [
     {
         text: 'Customization',
         items: [
-			{
-                text: 'Preview (Unreleased)',
-                items: [
-                    {
-                        text: 'Data File Structure',
-                        link: '/mods/bountiful/preview/FileStructure'
-                    },
-                    {
-                        text: 'Customizing Bounties',
-                        link: '/mods/bountiful/preview/CustomizingBounties'
-                    }
-                ]
-            },
             {
-                text: 'Latest (1.20.1+)',
+                text: 'Latest (1.20.4+)',
                 items: [
                     {
                         text: 'Data File Structure',
@@ -125,6 +112,19 @@ const bountifulSidebar = [
                     {
                         text: 'Customizing Bounties',
                         link: '/mods/bountiful/latest/CustomizingBounties'
+                    }
+                ]
+            },
+			{
+                text: '1.20.1',
+                items: [
+                    {
+                        text: 'Data File Structure',
+                        link: '/mods/bountiful/1-20-1/FileStructure'
+                    },
+                    {
+                        text: 'Customizing Bounties',
+                        link: '/mods/bountiful/1-20-1/CustomizingBounties'
                     }
                 ]
             },

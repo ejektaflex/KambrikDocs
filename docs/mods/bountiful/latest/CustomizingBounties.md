@@ -39,7 +39,7 @@ Lets break down what a typical entry is made of:
 
 Each entry also has an ID. In the above example, the entry's ID is `a_new_torch_obj`.
 The ID is used so that modpack makers can change or remove specific entries as they
-see fit.
+see fit. This ID can be anything - just make sure it doesn't conflict with any other ID in the Pool.
 
 ### Lesser Used Keys
 
@@ -48,7 +48,7 @@ Here are some other keys that are used somewhat more infrequently:
     more common at higher reputations). Valid values are `COMMON`, `UNCOMMON`, `RARE`, `EPIC` and `LEGENDARY`
 * `weightMult` - in case you'd like to further tweak the weight a bit, for some reason
     * Use sparingly, and try stick with changing `rarity` if you can.
-* `timeMult` - in case you want to give the user more time to complete this bounty
+* `timeMult` - In case you want to give the user more time to complete this bounty
 * `name` - literal text, in case you want an unlocalized name for this entry
     * If no name is supplied, some bounty types (e.g. `item_tag` and `criteria` will instead default to a localization key)
 * `icon` - A reference to an item that you'd like to use in place of the default icon for this bounty.
@@ -193,3 +193,7 @@ As you can see, it pulls from three different objective pools and three differen
 
 Here are some other keys that are used somewhat more infrequently:
 * `name` - if you'd like to use a localized name override for this bounty, you can supply it here. Note that clients will also need a copy of this file if you wish for it to show up for clients as well.
+* `canSpawn` - whether you'd like the Decree to spawn on Bounty Boards. (default: `true`)
+* `canReveal` - whether a blank Decree can be revealed to be this Decree when placed on a Bounty Board. (default: `true`)
+* `canWanderBuy` determines whether this Decree can be found in the stocks of Wandering Traders (default: `true`) 
+* `replace` - whether you'd like to completely overwrite existing matching Decree data with this data. (default: `false`)

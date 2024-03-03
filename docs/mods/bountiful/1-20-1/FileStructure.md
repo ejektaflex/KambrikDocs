@@ -38,7 +38,7 @@ it has already been loaded.
 
 E.g.:
 
-```yaml
+```
 config
     bountiful
         bounty_pools
@@ -67,14 +67,14 @@ Maybe 50 is too low, and we want to increase it to 100. To do that, we would cre
 ```json
 {
 	"content": {
-        "oak_sapling": {
+        "farmer_obj_oak_sapling": {
             "unitWorth": 100
         }
     }
 }
 ```
 
-When Bounty data loads, Bountiful will look for the ID `oak_sapling` in the `farmer_objs` pool, and overwrite the 
+When Bounty data loads, Bountiful will look for the ID `farmer_obj_oak_sapling` in the `farmer_objs` pool, and overwrite the 
 old `unitWorth` with the new one. Any JSON key can be patch-overwritten for any pool entry.
 
 We could use this method to do any sort of updates we want, such as:
