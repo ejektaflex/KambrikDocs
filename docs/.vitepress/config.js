@@ -18,14 +18,15 @@ const commonSidebar = [
 		text: "Features",
 		items: [
 			{ text: 'Auto-Registration', link: '/apis/feature/Registration.md' },
-			{ text: 'Keybinds', link: '/apis/feature/Keybinds.md' },
+			{ text: 'Data Components', link: '/apis/feature/Components.md' },
+			{ text: 'Message API', link: '/apis/serial/Message.md' },
+			{ text: 'Gui Framework', link: '/apis/feature/Gui.md' }
 		]
 	},
 	{
 		text: "Serialization",
 		items: [
 			{ text: 'Serialization', link: '/apis/serial/Serialization.md' },
-			{ text: 'Messages', link: '/apis/serial/Message.md' },
 		]
 	},
 	{
@@ -37,40 +38,17 @@ const commonSidebar = [
 	}
 ]
 
-// const dokkaSidebar = [
-// 	{
-// 		text: "Dokka",
-// 		link: '/dokka'
-// 	},
-// 	{
-// 		text: "Kambrik",
-// 		link: '/dokka/-kambrik/io.ejekta.kambrik',
-// 		items: [
-// 			{
-// 				text: "Command",
-// 				link: '/dokka/-kambrik/io.ejekta.kambrik.command'
-// 			},
-// 			{
-// 				text: "Ext",
-// 				link: '/dokka/-kambrik/io.ejekta.kambrik.ext',
-// 				items: [
-// 					{
-// 						text: "Client",
-// 						link: '/dokka/-kambrik/io.ejekta.kambrik.ext.client'
-// 					},
-// 					{
-// 						text: "Fapi",
-// 						link: '/dokka/-kambrik/io.ejekta.kambrik.ext.fapi'
-// 					},
-// 					{
-// 						text: "Internal",
-// 						link: '/dokka/-kambrik/io.ejekta.kambrik.ext.internal'
-// 					},
-// 				]
-// 			}
-// 		]
-// 	}
-// ]
+const percaleSidebar = [
+    {
+		text: 'General Info',
+		items: [
+			{
+				text: 'Percale',
+				link: '/mods/percale/'
+			}
+		]
+	}
+]
 
 const bountifulSidebar = [
     {
@@ -190,7 +168,8 @@ const sidebar = {
 	'/apis/': commonSidebar,
 	'/main/': commonSidebar,
 	//'/dokka': dokkaSidebar,
-	'/mods/bountiful': bountifulSidebar
+	'/mods/bountiful': bountifulSidebar,
+	'/mods/percale': percaleSidebar
 }
 
 console.log("DOOT");
@@ -232,8 +211,8 @@ module.exports = {
 								link: "/apis/feature/Registration"
 							},
 							{
-								text: "Keybind API",
-								link: "/apis/feature/Keybinds"
+								text: "Data Components",
+								link: "/apis/feature/Components"
 							},
 						]
 					},
@@ -280,6 +259,10 @@ module.exports = {
 					{
 						text: "Bountiful",
 						link: "/mods/bountiful/"
+					},
+					{
+						text: "Percale",
+						link: "/mods/percale/"
 					}
 				]
 			},

@@ -1,22 +1,10 @@
 # Auto Registration
 
-Kambrik allows developers to defer registration until Kambrik registers content. Lets say you want to add an item, `NeatItem` to your game. 
+Kambrik allows developers to defer registration until Kambrik registers content.
 
-## Registration
+## Registration Format
 
-In order to do automatic registration, add a new entrypoint to your `fabric.mod.json` underneath your `main` entrypoint:
-
-```json
-"main": [/* ... */],
-"kambrik": [
-    {
-        "adapter": "kotlin",
-        "value": "my.neat.mod.MyModContent"
-    }
-]
-```
-
-Now, registering the content is as simple as this:
+Registering the content is as simple as creating a KambrikAutoRegistrar object, defining your content, and telling Kambrik to register the object. Here is an example:
 
 ```kotlin
 object MyModContent : KambrikAutoRegistrar {
@@ -24,7 +12,27 @@ object MyModContent : KambrikAutoRegistrar {
 }
 ```
 
-Doing this will register your item as `your_mod_id:neat_item`. You can still refer to your created item, `MyModContent.MY_NEAT_ITEM`, whenever you'd like.
+Doing this will register your item as `your_mod_id:neat_item`. You can still refer to your created item, `MyModContent.MY_NEAT_ITEM`, whenever you'd like after registration has completed.
+
+## Completing Registration
+
+In order to register this content, add a new entrypoint to your `fabric.mod.json` underneath your `main` entrypoint:
+
+```json
+"main": [/* ... */],
+"kambrik": [ 
+    {
+        "adapter": "kotlin",
+        "value": "my.neat.mod.MyModContent"
+    }
+]
+```
+
+If you're not using Fabric, you can manually register your mod's content with a single line, like so:
+
+```kotlin
+KambrikRegistrar.doRegistrationsFor(MyModContent)
+```
 
 ## Content Types
 

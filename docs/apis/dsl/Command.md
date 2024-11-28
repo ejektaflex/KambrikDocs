@@ -8,25 +8,38 @@ easily express and modify the command tree, while still using Kotlin language fe
 ## Command Basics
 
 
-To start, we can add normal commands inside of a `CommandRegistrationCallback`. 
+To start, we add a new command via the dispatcher.
 
 A simple callback that adds a command might look like this:
 
+::: code-group
 
-```kotlin
+```kotlin [Fabric]
 override fun onInitialize() {
-
-	//... init code ...
-
-	val callback = CommandRegistrationCallback { dispatcher, dedicated ->
+	val callback = CommandRegistrationCallback { dispatcher, dedicated -> // [!code focus:6]
 		dispatcher.addCommand("test") {
 			// our command!
 		}
 	}
-
 	CommandRegistrationCallback.EVENT.register(callback)
 }
 ```
+
+```kotlin [NeoForge]
+@Mod("my_mod")
+class MyMod {
+	init {
+		FORGE_BUS.addListener(this::registerCommands) // [!code focus]
+	}
+	private fun registerCommands(evt: RegisterCommandsEvent) { // [!code focus:5]
+		evt.dispatcher.addCommand("test") {
+			// our command!
+		}
+	}
+}
+
+
+:::
 
 This creates a simple command: `/test`. It does not do anything yet, but it will work in-game as expected.
 
@@ -38,7 +51,7 @@ In order to get this command to run some code, we can add `runs`.
 
 
 
-```kotlin [Kotlin]
+```kotlin [Kambrik]
 dispatcher.addCommand("test") {
 	this runs {
 		println("Hello, World!")
@@ -105,7 +118,7 @@ dispatcher.addCommand("test") {
 	literal("other_thing") runs doFoo()
 }
 
-fun doFoo() = Command<ServerCommandSource> { ctx -> 
+fun doFoo() = Command<ServerCommandStack> { ctx -> 
 	print("Did foo!")
 	1
 }
@@ -125,12 +138,12 @@ dispatcher.addCommand("test") {
 	literal("other_thing") runs doBar()
 }
 
-fun doFoo() = Command<ServerCommandSource> { ctx -> 
+fun doFoo() = Command<ServerCommandStack> { ctx -> 
 	print("Did foo!")
 	1
 }
 
-fun doBar() = Command<ServerCommandSource> { ctx -> 
+fun doBar() = Command<ServerCommandStack> { ctx -> 
 	print("Did bar!")
 	doFoo().run(ctx)
 	1
@@ -245,7 +258,7 @@ Nesting of arguments can be done like so:
 
 
 Built in arguments:
-* `argString`, `argInt`, `argFloat`, `argBool`, `argIdentifier`, `argBlockPos`, `argColor`, `argIntRange`
+* `argString`, `argInt`, `argFloat`, `argBool`, `argResource`, `argBlockPos`, `argColor`, `argIntRange`, and more!
 
 If you wish to use a different or nonstandard argument, there is always `argument<T>(type: ArgumentType<T>)` . 
 
@@ -261,8 +274,7 @@ To do this, we can use `suggestionsList` to build a suggestions list.
 ```kotlin [Kambrik]
 dispatcher.addCommand("fruit") {
 	"eat" {
-		val fruitIdeas = suggestionList { listOf("apple", "pear", "banana") }
-
+		val fruitIdeas = suggestionList { listOf("apple", "pear", "banana") } // [!code focus:4]
 		argString("fruit", items = fruitIdeas) {
 			// ...
 		}
@@ -302,11 +314,9 @@ to have the right permissions. Requirements work identically to Brigadier:
 dispatcher.addCommand("greet") {
 	// only works when "Joe" is online
 	"joe" {
-		requires { 
-			"Joe" in it.playerNames
-		}
+		requires { "Joe" in it.playerNames }　// [!code focus]
 		this runs {
-			it.source.sendFeedback(LiteralText("Hey Joe!"), false)
+			it.source.sendFeedback(LiteralText("Joe is online!"), false)
 			1
 		}
 	}
@@ -344,7 +354,7 @@ override fun onInitialize() {
 }
 ```
 
-```kotlin [Vanilla]
+```kotlin [Vanilla/Fabric]
 override fun onInitialize() {
 
 	//... init code ...

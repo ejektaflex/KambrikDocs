@@ -2,10 +2,9 @@
 # Messages
 
 
-The Message API is an abstraction over 
-the [Fabric Networking API](https://github.com/FabricMC/fabric/tree/1.17/fabric-networking-api-v1). 
+The Message API is an abstraction over the game's networking system, allowing messages to be easily created and sent through plain Kotlin objects. 
 It uses [Kotlinx.Serialization](https://github.com/Kotlin/kotlinx.serialization)
-to send messages over the network, without needing to create a `NbtElement` or `PacketByteBuf`.
+to send messages over the network, without needing to create NBT, a Codec or a Packet Byte Buffer!
 
 ::: tip
 This page assumes you have basic knowledge of [Kotlinx Serialization](https://github.com/Kotlin/kotlinx.serialization)!
@@ -47,57 +46,7 @@ NOTE: Every message class must have one and only one associated identifier.
 :::
 
 
-
-## Serialization
-
-When creating a `KambrikMsg`, all class properties should be serializable.
-If they are not, they must be marked as `@Transient`.
-
-## Serializing Vanilla Classes
-
-We can also serialize a limited selection of classes from Vanilla. 
-
-To do so, we mark the property/type with `@Contextual`:
-
-```kotlin
-@Serializable
-class TellServerHello(val pos: @Contextual BlockPos) : ServerMsg() {
-    override fun onServerReceived(ctx: MsgContext) {
-        println("Hello from $pos!")
-    }
-}
-```
-
-A list of all contextual classes [can be found here](https://github.com/ejektaflex/Kambrik/blob/master/src/main/java/io/ejekta/kambrik/api/serial/KambrikSerialApi.kt).
-
-## Reference Serializers
-
-
-We can also reference some values that would otherwise be unserializable, and pass the reference to the other side. For example, `Item` classes are not serializable, but we can pass a reference to an Item registry object in a message.
-
-Sending reference serializers works exactly like before, with a `@Contextual` annotation. In this example we send the server a Bucket:
-
-```kotlin
-@Serializable
-class BanItem(val item: @Contextual Item) : KambrikMsg() {
-    override fun onServerReceived(ctx: MsgContext) {
-        println("We got passed a: ${item.name.asString()}!")
-    }
-}
-
-//...
-
-BanItem(Items.BUCKET).sendToServer()
-```
-
-Obviously, this will cause incorrect behaviour if the bucket does not exist on the server side. Because of this, you should
-stick to using reference serializers only when you know the data exists on both sides.
-
-A list of all reference serializers [can be found here](https://github.com/ejektaflex/Kambrik/blob/master/src/main/java/io/ejekta/kambrik/api/serial/KambrikSerialApi.kt).
-
-
-
-## Usage in Commands
+## Usage in Code
 
 `KambrikMsg` classes also have a `sendToClients` method. We can send this 
 message to whichever players we'd like! The Fabric Networking API has a

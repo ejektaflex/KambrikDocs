@@ -14,20 +14,7 @@ val textC = textKeybind("key.jump")
 
 ## Siblings
 
-Adding sibling texts can be done by nesting them inside of the main text, preceded by a unary `+` symbol.
-
 In order to add a sibling text, use the `add*` methods within the DSL block:
-
-```kotlin
-val text = textLiteral("Hello ") {
-    addLiteral(player.displayName)
-    addLiteral(", how are you?")
-}
-```
-
-### Shorthands
-
-You can substitute `textLiteral` for a string inside a builder to make your text shorter.
 
 ```kotlin
 val text = textLiteral("Hello ") {
