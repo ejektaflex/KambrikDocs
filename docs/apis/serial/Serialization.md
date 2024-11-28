@@ -50,15 +50,17 @@ data class FooData(val pos: @Contextual BlockPos)
 `BlockPos`, as well as any other Vanilla classes, cannot be serialized/deserialized unless `@Contextual` has been added.
 
 These are the following classes that can be serialized to JSON when marked as `@Contextual`:
-* `Block`*
+* Any registerable class* (`Block`, `Item`, etc)
+* `ItemStack`*
 * `BlockPos`
-* `Box`
-* `Identity`
-* `Item`*
-* `NbtCompound`
+* `AABB/Box`
+* `ResourceLocation/Identifier`
+* `CompoundTag/NbtCompound`
 
-\* these classes are only referentially serialized.
+\* These asterisk marked objects **require** a Registry context in order to be (de)serialized. See below.
 
-### Referential Serialization
+### Registry Sensitive Serialization 
 
-Some Vanilla classes cannot be fully serialized, and are instead turned into a piece of related data. For example, serializing a `BucketItem` results in `minecraft:bucket`. Deserializing it does a lookup in the item registry and returns the original `BucketItem`. These are primarily used in the [Message API](Message). See [the related documentation](Message#reference-serializers) for more information.
+Some classes cannot be serialized or deserialized without a Registry context. For example, you might normally be able to serialize an `ItemStack` without issue, until an enchantment is added to it and suddenly the serializer fails. This is because Enchantment components internally rely on RegistryOps (which has access to the Enchantments registry) in order to serialize them. Similarly, Kambrik needs a registry context. This can be done by using a `PercaleJson` object and passing in a `RegistryOps` as it's first parameter.
+
+// TODO add an example of this

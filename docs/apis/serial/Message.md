@@ -15,14 +15,12 @@ This page assumes you have basic knowledge of [Kotlinx Serialization](https://gi
 ## Message Basics
 
 The Messages API allows us to send an object over the network, from the Client to the Server and vice-versa. 
-To make a serializable object, it must have the `@Serializable` annotation 
-and inherit from `ClientMsg` or `ServerMsg`.
+To make a serializable object, it must have the `@Serializable` annotation and inherit from `KambrikMsg`.
 
 ```kotlin
-import io.ejekta.kambrik.api.message.ClientMsg
 
 @Serializable
-data class TestMsg(val num: Int) : ClientMsg() {
+data class TestMsg(val num: Int) : KambrikMsg() {
 	override fun onClientReceived(ctx: MsgContext) {
 		println("Got num!: $num")
 	}
@@ -52,7 +50,7 @@ NOTE: Every message class must have one and only one associated identifier.
 
 ## Serialization
 
-When creating a `ClientMsg`/`ServerMsg`, all class properties should be serializable.
+When creating a `KambrikMsg`, all class properties should be serializable.
 If they are not, they must be marked as `@Transient`.
 
 ## Serializing Vanilla Classes
@@ -81,7 +79,7 @@ Sending reference serializers works exactly like before, with a `@Contextual` an
 
 ```kotlin
 @Serializable
-class BanItem(val item: @Contextual Item) : ServerMsg() {
+class BanItem(val item: @Contextual Item) : KambrikMsg() {
     override fun onServerReceived(ctx: MsgContext) {
         println("We got passed a: ${item.name.asString()}!")
     }
@@ -101,7 +99,7 @@ A list of all reference serializers [can be found here](https://github.com/ejekt
 
 ## Usage in Commands
 
-`ClientMsg` classes also have a `sendToClients` method. We can send this 
+`KambrikMsg` classes also have a `sendToClients` method. We can send this 
 message to whichever players we'd like! The Fabric Networking API has a
 helper class for this called `PlayerLookup`. The following example shows
 a message being sent to all players that are 'tracking' (within view distance of)
@@ -110,7 +108,7 @@ the world origin.
 
 ```kotlin
 @Serializable
-class PurgeArea : ClientMsg() {
+class PurgeArea : KambrikMsg() {
 	override fun onClientReceived(ctx: MsgContext) {
 		ctx.client.player?.kill()
 	}
@@ -118,11 +116,9 @@ class PurgeArea : ClientMsg() {
 
 // later on, in a Command DSL:
 "purge" runs {
-
 	PurgeArea().sendToClients(
 		PlayerLookup.tracking(it.source.world, BlockPos.ORIGIN)
 	)
-
 	1
 }
 
