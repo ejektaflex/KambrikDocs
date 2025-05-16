@@ -34,6 +34,8 @@
 
 .dark {
 	--vp-c-bg: #1e1e20;
+	--vp-button-alt-bg: var(--vp-c-bg-soft);
+	--vp-button-alt-border: var(--vp-c-brand-2);
 
 	--vp-code-bg: #ffffff11;
 

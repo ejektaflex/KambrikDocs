@@ -1,3 +1,5 @@
+const { genSideBar } = require("./versions");
+
 const commonSidebar = [
 	{
 		text: "Getting Started",
@@ -37,160 +39,18 @@ const commonSidebar = [
 	}
 ]
 
-// const dokkaSidebar = [
-// 	{
-// 		text: "Dokka",
-// 		link: '/dokka'
-// 	},
-// 	{
-// 		text: "Kambrik",
-// 		link: '/dokka/-kambrik/io.ejekta.kambrik',
-// 		items: [
-// 			{
-// 				text: "Command",
-// 				link: '/dokka/-kambrik/io.ejekta.kambrik.command'
-// 			},
-// 			{
-// 				text: "Ext",
-// 				link: '/dokka/-kambrik/io.ejekta.kambrik.ext',
-// 				items: [
-// 					{
-// 						text: "Client",
-// 						link: '/dokka/-kambrik/io.ejekta.kambrik.ext.client'
-// 					},
-// 					{
-// 						text: "Fapi",
-// 						link: '/dokka/-kambrik/io.ejekta.kambrik.ext.fapi'
-// 					},
-// 					{
-// 						text: "Internal",
-// 						link: '/dokka/-kambrik/io.ejekta.kambrik.ext.internal'
-// 					},
-// 				]
-// 			}
-// 		]
-// 	}
-// ]
-
-const bountifulSidebar = [
-    {
-		text: 'General Info',
-		items: [
-			{
-				text: 'Bounty Boards',
-				link: '/mods/bountiful/general/bounty-boards'
-			},
-			{
-				text: 'Reputation',
-				link: '/mods/bountiful/general/reputation'
-			},
-			{
-				text: 'Decrees',
-				link: '/mods/bountiful/general/decrees'
-			}
-		]
-	},
-	{
-		text: 'Advanced Info',
-		items: [
-			{
-				text: 'Bounty Generation',
-				link: '/mods/bountiful/advanced/generation'
-			}
-		]
-	},
-    {
-        text: 'Customization',
-        items: [
-            {
-                text: 'Latest (1.20.4+)',
-                items: [
-                    {
-                        text: 'Data File Structure',
-                        link: '/mods/bountiful/latest/FileStructure'
-                    },
-                    {
-                        text: 'Customizing Bounties',
-                        link: '/mods/bountiful/latest/CustomizingBounties'
-                    }
-                ]
-            },
-			{
-                text: '1.20.1',
-                items: [
-                    {
-                        text: 'Data File Structure',
-                        link: '/mods/bountiful/1-20-1/FileStructure'
-                    },
-                    {
-                        text: 'Customizing Bounties',
-                        link: '/mods/bountiful/1-20-1/CustomizingBounties'
-                    }
-                ]
-            },
-			{
-                text: '1.19.4',
-                items: [
-                    {
-                        text: 'Data File Structure',
-                        link: '/mods/bountiful/1-19-4/FileStructure'
-                    },
-                    {
-                        text: 'Customizing Bounties',
-                        link: '/mods/bountiful/1-19-4/CustomizingBounties'
-                    }
-                ]
-            },
-            {
-                text: 'Fabric Legacy: 1.17-1.19.3',
-                items: [
-                    {
-                        text: 'Data File Structure',
-                        link: '/mods/bountiful/1-19-3/FileStructure'
-                    },
-                    {
-                        text: 'Customizing Bounties',
-                        link: '/mods/bountiful/1-19-3/CustomizingBounties'
-                    }
-                ]
-            },
-			{
-				text: 'Forge Legacy: 1.14-1.16',
-				items: [
-					{
-						text: 'Commands',
-						link: '/mods/bountiful/1-14/Commands'
-					},
-					{
-						text: 'Customizing Bounties',
-						link: '/mods/bountiful/1-14/CustomizingBounties'
-					}
-				]
-			},
-			{
-				text: 'Forge Legacy: 1.12',
-				items: [
-					{
-						text: 'Commands',
-						link: '/mods/bountiful/1-12/Commands'
-					},
-					{
-						text: 'Customizing Bounties',
-						link: '/mods/bountiful/1-12/CustomizingBounties'
-					}
-				]
-			}
-        ]
-    }
-    
-]
 
 
-const sidebar = {
+let sidebar = {
 	'/apis/': commonSidebar,
 	'/main/': commonSidebar,
 	//'/dokka': dokkaSidebar,
-	'/mods/bountiful': bountifulSidebar
+	'/mods/bountiful': bountifulSidebarCommon
+}
+
+for (version in versionedSidebars) {
+	console.log("VERSION: " + version);
+	sidebar['/mods/bountiful/' + version] = genSideBar(version);
 }
 
 console.log("DOOT");
@@ -279,7 +139,7 @@ module.exports = {
 				items: [
 					{
 						text: "Bountiful",
-						link: "/mods/bountiful/"
+						link: "/mods/bountiful/latest/CustomizingBounties"
 					}
 				]
 			},
