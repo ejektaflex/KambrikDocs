@@ -45,7 +45,7 @@ let sidebar = {
 	'/apis/': commonSidebar,
 	'/main/': commonSidebar,
 	//'/dokka': dokkaSidebar,
-	'/mods/bountiful': bountifulSidebarCommon
+	'/mods/bountiful': genSideBar('latest')
 }
 
 for (version in versionedSidebars) {

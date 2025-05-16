@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useRouter, useRoute } from 'vitepress';
 import { genSideBar, genVersionPickerItems } from '../versions';
 
@@ -21,13 +21,24 @@ const versions = genVersionPickerItems();
 
 const selected = ref(versions[0]);
 
-// Update selected based on current route
-onMounted(() => {
+function refreshBoxState() {
     const current = versions.find(v => route.path.startsWith('/mods/bountiful/' + v.key));
     if (current) {
         selected.value = current;
+    } else {
+        selected.value = versions.find(v => v.key == 'latest');
     }
+}
+
+// Update selected based on current route
+onMounted(() => {
+    refreshBoxState()
 });
+
+watch(() => route.path, (newPath) => {
+  refreshBoxState()
+});
+
 
 function navigate() {
     router.go(selected.value.path);
