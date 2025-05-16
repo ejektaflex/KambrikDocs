@@ -1,4 +1,4 @@
-const { genSideBar } = require("./versions");
+const { genSideBar, bountifulSidebarCommon } = require("./versions");
 
 const commonSidebar = [
 	{
