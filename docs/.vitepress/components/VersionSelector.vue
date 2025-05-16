@@ -1,6 +1,6 @@
 <template>
     <div class="version-selector">
-        <h2 class="select-label">Version</h2>
+        <h2 class="select-label">Customization Version</h2>
         <select id="version-select" v-model="selected" @change="navigate">
             <option v-for="v in versions" :key="v.value" :value="v">
                 {{ v.label }}
