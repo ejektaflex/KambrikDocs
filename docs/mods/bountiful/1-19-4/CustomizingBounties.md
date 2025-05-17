@@ -95,7 +95,7 @@ your hand and type `/bo hand` to have the correct entry with the correct NBT cop
 
 ### Entity Entries (`ENTITY`)
 
-Entity entries ask you to go out and kill a certain number of mobs. As such, they can only be rewards.
+Entity entries ask you to go out and kill a certain number of mobs. As such, they can only be objectives.
 Entity entries are defined by their entity type. E.g. `minecraft:husk` or `minecraft:cave_spider`.
 
 ### Item Tag Entries (`ITEM_TAG`)

@@ -1,4 +1,5 @@
 <script setup>
+import VersionInjector from '../components/VersionInjector.vue'
 import VersionSelector from '../components/VersionSelector.vue'
 import DefaultTheme from 'vitepress/theme'
 
@@ -7,8 +8,8 @@ const { Layout } = DefaultTheme
 
 <template>
     <Layout>
-        <template #sidebar-nav-after>
-            <VersionSelector />
+        <template #doc-before>
+            <VersionInjector />
         </template>
     </Layout>
 </template>
