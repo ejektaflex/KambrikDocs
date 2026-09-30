@@ -16,7 +16,7 @@ hero:
       theme: alt
 features:
   - title: Kotlin-Based
-    details: Kambrik uses Kotlin 1.8.10 under the hood, along with KotlinX Serialization for data serialization.
+    details: Kambrik uses Kotlin under the hood, along with KotlinX Serialization for data serialization.
   - title: Fabric Integration
     details: We use existing Fabric APIs when possible to avoid reinventing the wheel.
   - title: Plug-And-Play
